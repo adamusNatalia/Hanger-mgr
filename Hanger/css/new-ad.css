@@ -1,0 +1,42 @@
+﻿body {
+    padding-bottom: 40px;
+    color: #5a5a5a;
+    background-color: #ebebeb;
+    overflow-x: hidden;
+}
+
+.page-header{
+    margin-left:20px;
+}
+
+input, select,textarea{
+    width:50%;
+}
+
+.form-horizontal{
+    margin-top:80px;
+}
+
+.field-validation-error{
+    display:block;
+    white-space: nowrap;
+}
+
+.form{
+    width: 15%;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+    text-align: right;
+}
+
+.input-group-addon:not(:first-child):not(:last-child){
+    border-bottom-right-radius: 6px; 
+    border-top-right-radius: 6px;
+}
+
+@media (max-width: 768px) {
+
+ input, select, textarea {
+    width: 100%;
+}
+}

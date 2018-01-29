@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3622bc16a2ce41388831bdafa96b4c98" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="HangerDatabaseModel.Ad" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.Category" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.Color" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.Condition" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.ForumCategories" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.ForumPosts" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.ForumTopic" Width="1.5" PointX="8.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.Message" Width="1.5" PointX="5.25" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.Photos" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.PhotoSite" Width="1.5" PointX="11.625" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.Size" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.Subcategory" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.Tags" Width="1.5" PointX="7.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.User" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.UserPhoto" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <AssociationConnector Association="HangerDatabaseModel.FKAd307749" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKAd464028" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKAd475152" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKAd515014" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKAd594180" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKPhotos129746" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKTags638329" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKSubcategor437486" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKForumTopic789626" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKForumPosts217238" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKForumPosts909218" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKForumTopic340069" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKMessage241730" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKMessage63833" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKPhotos982370" ManuallyRouted="false" />
+        <AssociationConnector Association="HangerDatabaseModel.FKUser322553" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.SubSubcategory" Width="1.5" PointX="5.25" PointY="17.75" />
+        <AssociationConnector Association="HangerDatabaseModel.FKSubsubcate564795" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.Brand" Width="1.5" PointX="8.375" PointY="8.875" />
+        <AssociationConnector Association="HangerDatabaseModel.FKAd584267" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

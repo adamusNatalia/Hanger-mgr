@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap core CSS -->
+    <link href="@Url.Content("~/css/bootstrap.css")" rel="stylesheet">
+    @*<link href="@Url.Content("~/css/carousel.css")" rel="stylesheet">*@
+    <link href="@Url.Content("~/css/nav.css")" rel="stylesheet">
+    <link href="@Url.Content("~/css/img.css")" rel="stylesheet">
+    <link href="@Url.Content("~/css/dropdown.css")" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div class="navbar-wrapper">
+        <div class="container">
+
+            <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a  href="@Url.Action("Index", "Home")" class="navbar-left">
+                            <img alt="Brand" src="~/Pictures/hanger_logo2.png">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="@Url.Action("New", "Catalog")" class="navbar-left">Nowości</a></li>
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Katalog <b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-level">
+                                  
+                                    @*<li><a href="#">One more separated link</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li class="dropdown-submenu">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="dropdown-submenu">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#">Action</a></li>
+                                                            <li><a href="#">Another action</a></li>
+                                                            <li><a href="#">Something else here</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Separated link</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">One more separated link</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>*@
+                                  
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Damska Odzież</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 2 })">Sukienki</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 3 })">T-shirty i topy</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 4 })">Koszule</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 6 })">Bluzy i swetry</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 7 })">Spódnice</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 8 })">Spodnie</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 11 })">Marynarki</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 13 })">Okrycia wierzchnie</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 14 })">Inne ubrania</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Damskie Obuwie</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 15 })">Sandały</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 16 })">Półbuty</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 17 })">Botki</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 18 })">Kozaki</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 19 })">Balerinki</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 20 })">Obuwie sportowey</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 21 })">Inne obuwie</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Damskie Torebki</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 22 })">Torby</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 23 })">Kopertówki</a></li>
+                                            <li><a href="@Url.Action("Index", "Catalog",new { id = 24 })">Plecaki</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+                            <li><a href="@Url.Action("AboutUs", "Home")" class="navbar-left">O nas</a></li>
+                            <li><a href="@Url.Action("Contact", "Home")" class="navbar-left">Kontakt</a></li>
+                        </ul>
+                        
+                        <ul class="nav navbar-nav navbar-right profil">
+                            @if (Session["LogedUserID"] != null)
+                            {
+                                <li class="icon" style="margin-top:-7px;">
+                                    <a href="@Url.Action("UserProfil", "UserProfil", new { id = (Session["LogedUserID"] as Hanger.Models.User).Id })">
+                                        <img alt="Brand" src="~/Pictures/Icons/user3.png" style="width:40px">
+                                    </a>
+                                </li>
+                            }
+                            @if (Session["LogedUserID"] != null)
+                            {
+                                <li class="full" id="login">
+                                    @Html.ActionLink("Wyloguj się", "LogOut", "Login")
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="full" id="login">
+                                    @Html.ActionLink("Zaloguj się", "Login", "Login")
+                                </li>
+
+                            }
+                            @*@if (Session["LogedUserID"] != null)
+                            {
+                                <li class="frame" id="sell">
+                                    @Html.ActionLink("Sprzedaj", "New", "Ad")
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="frame" id="login">
+                                    @Html.ActionLink("Zrejestruj się", "Register", "Register")
+                                </li>
+
+                            }*@
+
+                            <li class="frame" id="sell">
+                                @Html.ActionLink("Sprzedaj", "New", "Ad")
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="@Url.Content("~/js/bootstrap.js")"></script>
+
+    <script>
+$(document).ready(function(){
+  $('.dropdown-submenu a.test').on("click", function(e){
+    $(this).next('ul').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+    </script>
+</body>
+</html>

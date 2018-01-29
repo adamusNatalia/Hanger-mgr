@@ -1,0 +1,124 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Hanger.Models.Ad>
+@Styles.Render("~/css/new.css")
+
+    <h2 class="page-header"><img alt="Brand" src="~/Pictures/Icons/hanger.png" class="img-header"> Nowości</h2>
+    @using (Html.BeginForm("New", "Catalog", FormMethod.Get))
+    {<table class="table" style="width: initial;">
+        <tr>
+            <th>
+                <label class="control-label col-md-2" for="Size">Rozmiar</label>
+            </th>
+            <th>
+                <label class="control-label col-md-2" for="SizeId">Marka</label>
+            </th>
+            <th>
+                <label class="control-label col-md-2" for="SizeId">Kolor</label>
+            </th>
+            <th>
+                <label class="control-label col-md-2" for="SizeId">Stan</label>
+            </th>
+            <th>
+                <label class="control-label col-md-2" for="SizeId">Cena</label>
+            </th>
+
+            <th></th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DropDownList("Size", "Wszystkie")
+            </td>
+            <td>
+                @Html.DropDownList("Brand", "Wszystkie")
+            </td>
+            <td>
+                @Html.DropDownList("Color", "Wszystkie")
+            </td>
+            <td>
+                @Html.DropDownList("Condition", "Wszystkie")
+            </td>
+            <td>
+                Od @Html.DropDownList("Price1", "")
+                do @Html.DropDownList("Price2", "")
+            </td>
+            <td>
+                <input type="submit" value="" class="btn btn-search" style="padding: 0px;" />
+            </td>
+        </tr>
+    </table>
+    }
+
+
+@{ int j = 0;}
+<div id="wrapper">
+    @if (Model.Count() == 0)
+    {
+        <div style="text-align:center">Brak produktów</div>
+    }
+    else {
+    <div id="columns">
+
+
+        @while (j <= Model.Count() - 1)
+
+        {
+
+            <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })">
+                <div class="pin">
+                    @{Boolean isPhoto = false; }
+                    @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
+                    {
+                        if (item.AdId == Model.ElementAt(j).Id && item.Main_photo == true && isPhoto == false)
+                        {
+
+                            <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" /><br />
+                            isPhoto = true;
+                        }
+
+                    }
+
+                    @if (isPhoto == false)
+                    {
+                        <img src="~/Pictures/dress.jpg" /><br />
+                    }
+
+
+                    @if ((@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)).ToString() == "")
+                    {
+                        <p class="alignright" style="width:100%">
+
+                            <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
+                        </p>
+                        <p class="right">
+
+                            <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+                        </p>
+
+                    }
+                    else
+                    {
+                        <p class="alignleft">
+
+                            <b>@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)</b>
+                        </p>
+                        <p class="alignright">
+
+                            <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
+                        </p>
+                        <p class="right">
+
+                            <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+                        </p>
+                    }
+                </div>
+            </a>
+                            j++;
+
+                        }
+    </div>
+         }
+</div>
+
+@Html.PagedListPager(Model, page => Url.Action("New", new { page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })

@@ -1,0 +1,151 @@
+﻿@model Hanger.Models.Ad
+
+@Styles.Render("~/css/account.css")
+@Styles.Render("~/css/new-ad.css")
+@{
+    ViewBag.Title = "Dodaj ogłoszenie";
+}
+
+<body style="overflow-x:hidden">
+
+    @using (Html.BeginForm())
+    {
+        if (Session["LogedUserID"] != null)
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h3 class="page-header"><span class="glyphicon glyphicon-pencil"></span> Dodaj ogłoszenie</h3>
+
+                @Html.ValidationSummary(true)
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Title)
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(
+                model => model.Description,
+                 new { style = "height: 120px;" }
+                )
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="SizeId">Rozmiar</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("SizeId", String.Empty)
+                        @Html.ValidationMessageFor(model => model.SizeId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ColorId, "Kolor", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("ColorId", String.Empty)
+                        @Html.ValidationMessageFor(model => model.ColorId)
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.CategoryId, "Kategoria", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("CategoryId", String.Empty)
+                            @Html.ValidationMessageFor(model => model.SubcategoryId)
+                        </div>
+                    </div>*@
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SubcategoryId, "Kategoria", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("SubcategoryId", String.Empty)
+                        @Html.ValidationMessageFor(model => model.SubcategoryId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ConditionId, "Stan", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("ConditionId", String.Empty)
+                        @Html.ValidationMessageFor(model => model.ConditionId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BrandId, "Marka", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("BrandId", String.Empty)
+                        @Html.ValidationMessageFor(model => model.BrandId)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Swap, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @*@Html.EditorFor(model => model.Swap)*@
+                        @Html.DropDownList("Swap", String.Empty)
+                        @Html.ValidationMessageFor(model => model.Swap)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="input-group" style="width: 15%;">
+                            @Html.TextBoxFor(m => m.Price, new { @class = "form-control form" })
+
+                            <span style="text-align:left;" class="input-group-addon">zł</span>
+
+                            @Html.ValidationMessageFor(model => model.Price)
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Zapisz i dodaj zdjęcia" class="btn btn-default" />
+                    </div>
+                </div>
+
+
+            </div>
+        }
+        else
+        {
+            <div id="login-overlay" class="modal-dialog">
+                <div>
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-6">
+
+                                <p class="lead">Dodaj ogłoszenie!<br /><span class="text-success">ZALOGUJ SIĘ</span></p>
+                                <p><a href="/Login/Login" class="btn btn-info btn-block">Zaloguj się</a></p>
+
+                            </div>
+                            <div class="col-xs-6">
+                                <p class="lead">Nie masz konta?<br /><span class="text-success">ZAREJESTRUJ SIĘ</span></p>
+
+                                <p><a href="/Register/Register" class="btn btn-info btn-block">Zarejestruj się</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    }
+
+</body>

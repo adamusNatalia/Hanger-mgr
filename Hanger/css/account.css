@@ -1,0 +1,92 @@
+﻿body {
+    background-color: #ebebeb;
+}
+
+
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 800px;
+        margin: 30px auto;
+    }
+}
+
+.modal-body {
+    margin-top:100px;
+}
+.text-success, .text-success:hover {
+    color: #dc679a;
+}
+.well{
+    border-radius:6px;
+}
+.btn-frame{
+    background-color: white;
+    color: #dc679a;
+    border: 2px solid #dc679a;
+    width:100px;
+    height:45px;
+    border-radius:6px;
+
+}
+.btn-info {
+    background-color: white;
+    color: #dc679a;
+    border: 2px solid 0;
+    border-radius:6px;
+}
+
+.btn-info, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open .dropdown-toggle.btn-info {
+    background-color: white;
+    color: #dc679a;
+    border: 2px solid #dc679a;
+    border-radius:6px;
+}
+
+input, select, textarea {
+    display: block;
+    width: 100%;
+    height: 39px;
+    padding: 0px 18px;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #333333;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+textarea{
+    padding: 8px 18px;
+}
+
+.icon {
+background-image: url(../../Pictures/Login/icon2.png);
+background-position: left center;
+background-repeat: no-repeat;
+
+padding-left: 16px; /* Or size of icon + spacing */
+}
+
+.lead-center {
+    margin-bottom: 21px;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.validation-summary-errors{
+    margin-top: 90px;
+    margin-bottom: -80px;
+    font-size: 20px;
+}
+.validation-summary-errors ul{
+   text-align: center;
+   list-style-type: none;
+   color: #dc679a;
+}
+    

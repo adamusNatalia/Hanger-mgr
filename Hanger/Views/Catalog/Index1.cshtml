@@ -1,0 +1,71 @@
+﻿
+
+@using PagedList;
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<Hanger.Models.Ad>
+@{
+    ViewBag.Title = "Katalog";
+}
+@Styles.Render("~/css/new.css")
+
+<p style="padding-top: 50px;">
+    @using (Html.BeginForm("Index1", "Catalog", FormMethod.Get))
+    {
+        <b>Szukaj według:</b><br />
+        @Html.RadioButton("searchBy", "Color", true)<text> Kolor</text>
+        @Html.RadioButton("searchBy", "Size")<text> Rozmiar</text>
+        <br /><br />
+        @Html.TextBox("search")<input type="submit" value="Szukaj" /><br />
+
+        @Html.ActionLink("Cena", "Index", new { sortOrder = ViewBag.PriceSortParm })
+        @Html.DropDownList("Size", "Wszystkie")
+        <input type="submit" value="Filter" />
+    }
+</p>
+
+
+
+@{ int j = Model.Count() - 1;}
+<div id="wrapper">
+    <div id="columns">
+
+
+        @for (int i = 0; i < 16 && j>0; i++)
+        {
+
+            <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })" class="navbar-left">
+                <div class="pin"  style="break-inside: avoid-column;">
+                    @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
+                    {
+                        if (item.AdId == Model.ElementAt(j).Id && item.Main_photo == true)
+                        {
+
+                            <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" />
+
+                        }
+
+                    }
+                    <p class="alignleft">
+
+                        <b>@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)</b>
+                    </p>
+                    <p class="alignright">
+
+                        <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
+                    </p>
+                    <p class="right">
+
+                        <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+                    </p>
+                </div>
+            </a>
+            j--;
+
+        }
+    </div>
+</div>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchBy = Request.QueryString["searchBy"], search = Request.QueryString["search"] }),
+new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded }
+)

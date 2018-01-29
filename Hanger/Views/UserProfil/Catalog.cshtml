@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Hanger.Models.Ad>
+@{
+    ViewBag.Title = "Catalog";
+}
+
+@Styles.Render("~/css/new.css")
+@Styles.Render("~/css/contact.css")
+
+
+<h2 class="page-header">
+    <img alt="Brand" src="~/Pictures/Icons/user1.png" class="img-header"> Ogłoszenia użytkownika @ViewBag.profilName
+</h2>
+
+@{ int j = Model.Count() - 1;}
+<div id="wrapper">
+    <div id="columns">
+     @while (j >= 0)
+    {
+
+        <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })" class="navbar-left">
+        <div class="pin">
+        @{Boolean isPhoto = false; }
+        @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
+        {
+            if (item.AdId == Model.ElementAt(j).Id && item.Main_photo == true && isPhoto == false)
+            {
+
+                <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" />
+                isPhoto = true;
+            }
+
+        }
+
+        @if (isPhoto == false)
+        {
+            <img src="~/Pictures/dress.jpg" />
+        }
+
+        <p class="alignleft">
+
+            <b>@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)</b>
+        </p>
+        <p class="alignright">
+
+            <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
+        </p>
+        <p class="right">
+
+            <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+        </p>
+
+        </div>
+        </a>
+                j--;
+
+    }
+    </div>
+</div>
+
+

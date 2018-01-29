@@ -1,0 +1,24 @@
+﻿.btn-default{
+    background-color:#ff6a00;
+}
+
+.login-profits,
+.registration-profits,
+.dealer-profits .profit-icon {
+    font-size: 16px;
+    font-weight: 400;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+   
+  .profit-text {
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+
+  .login-profits {
+    height: 307px;
+
+  }
+
+  

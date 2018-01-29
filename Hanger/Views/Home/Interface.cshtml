@@ -1,0 +1,192 @@
+﻿@model IEnumerable<Hanger.Models.Ad>
+@{
+    ViewBag.Title = "New";
+}
+@Styles.Render("~/css/new.css")
+
+<!-- Carousel
+    ================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="fill" style="background-image:url('../../Pictures/Home/slide.png');"></div>
+            @*<img src="~/Pictures/Home/slide.png" />*@
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Odmień swoją szafę!</h1>
+                    <h2>Wystawiaj, sprzedawaj, zarabiaj.</h2>
+                    <p><a class="btn btn-lg btn-primary" href="/Ad/New" role="button">Zacznij sprzedawać</a></p>
+
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="fill" style="background-image:url('../../Pictures/Home/8blue2.jpg');"></div>
+            @*<img src="~/Pictures/Home/8blue2.jpg" />*@
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Zacznij już dziś!</h1>
+                    <h2>Dołącz do nas.</h2>
+                    <p><a class="btn btn-lg btn-primary" href="/Register/Register" role="button">Zarejestruj się</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+
+<div id="wrapper">
+    <div id="columns">
+        @for (int i = 0; i < 8; i++)
+        {
+            <div class="pin">
+                <img src="~/Pictures/s9a.jpg" />
+                <p class="alignleft">
+
+                    <b>H&M</b>
+                </p>
+                <p class="alignright">
+
+                    <b> 120 zł</b>
+                </p>
+                <p class="right">
+
+                    <b>S</b>
+                </p>
+            </div>
+
+        }
+    </div>
+</div>
+
+@*@{ int j = Model.Count() - 1;}
+    <div id="wrapper">
+        <div id="columns">
+
+
+            @for (int i = 0; i < 8; i++)
+            {
+
+                <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })" class="navbar-left">
+                    <div class="pin">
+                        @{Boolean isPhoto = false; }
+                        @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
+                        {
+                            if (item.AdId == Model.ElementAt(j).Id && item.Main_photo == true && isPhoto==false)
+                            {
+
+                                <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" /><br />
+                                isPhoto = true;
+                            }
+
+                        }
+
+                       @if(isPhoto==false){
+                        <img src="~/Pictures/dress.jpg" /><br />
+                        }
+                        <p class="alignleft">
+
+                            <b>@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)</b>
+                        </p>
+                        <p class="alignright">
+
+                            <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
+                        </p>
+                        <p class="right">
+
+                            <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+                        </p>
+                    </div>
+    </a>
+                    j--;
+
+                    }
+    </div>
+    </div>*@
+
+
+@*<div class="business-header">
+        <div class="intro-content">
+
+            <h1>Zacznij już dziś!</h1>
+            <h2>Dołącz do nas.</h2>
+            <p><a class="btn btn-lg btn-primary" href="#" role="button">Zarejestruj się</a></p>
+
+        </div>
+    </div>*@
+
+
+<div class="banner">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Dołącz do nas!</h2>
+            </div>
+            <div class="col-lg-6">
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="/Login/Login" class="btn btn-default btn-lg">Zaloguj się</a>
+                    </li>
+
+                    <li>
+                        <a href="/Register/Register" class="btn btn-default btn-lg">Zarejestruj się</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+
+@*<div id="wrapper">
+        <div id="columns">
+
+
+        @for (int i = 0; i < 8; i++)
+        {
+                <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })" class="navbar-left">
+                <div class="pin">
+                    @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
+                    {
+                        if (item.AdId == Model.ElementAt(j).Id && item.Main_photo == true)
+                        {
+
+                            <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" /><br />
+
+                        }
+
+                    }
+                    <p class="alignleft">
+
+                        <b>@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)</b>
+                    </p>
+                    <p class="alignright">
+
+                        <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
+                    </p>
+                    <p class="right">
+
+                        <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+                    </p>
+                </div>
+            </a>
+
+                j--;
+
+                }
+        </div>
+    </div>*@
+
+<script src="~/js/card.js"></script>

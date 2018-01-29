@@ -1,0 +1,1190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HangerDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="HangerDatabaseModelStoreContainer">
+    <EntitySet Name="Ad" EntityType="HangerDatabaseModel.Store.Ad" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Category" EntityType="HangerDatabaseModel.Store.Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Color" EntityType="HangerDatabaseModel.Store.Color" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Condition" EntityType="HangerDatabaseModel.Store.Condition" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ForumCategories" EntityType="HangerDatabaseModel.Store.ForumCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ForumPosts" EntityType="HangerDatabaseModel.Store.ForumPosts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ForumTopic" EntityType="HangerDatabaseModel.Store.ForumTopic" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Message" EntityType="HangerDatabaseModel.Store.Message" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Photos" EntityType="HangerDatabaseModel.Store.Photos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PhotoSite" EntityType="HangerDatabaseModel.Store.PhotoSite" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Size" EntityType="HangerDatabaseModel.Store.Size" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subcategory" EntityType="HangerDatabaseModel.Store.Subcategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tags" EntityType="HangerDatabaseModel.Store.Tags" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="HangerDatabaseModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserPhoto" EntityType="HangerDatabaseModel.Store.UserPhoto" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubSubcategory" EntityType="HangerDatabaseModel.Store.SubSubcategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Brand" EntityType="HangerDatabaseModel.Store.Brand" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FKAd307749" Association="HangerDatabaseModel.Store.FKAd307749">
+      <End Role="Condition" EntitySet="Condition" />
+      <End Role="Ad" EntitySet="Ad" />
+    </AssociationSet>
+    <AssociationSet Name="FKAd464028" Association="HangerDatabaseModel.Store.FKAd464028">
+      <End Role="Size" EntitySet="Size" />
+      <End Role="Ad" EntitySet="Ad" />
+    </AssociationSet>
+    <AssociationSet Name="FKAd475152" Association="HangerDatabaseModel.Store.FKAd475152">
+      <End Role="Color" EntitySet="Color" />
+      <End Role="Ad" EntitySet="Ad" />
+    </AssociationSet>
+    <AssociationSet Name="FKAd515014" Association="HangerDatabaseModel.Store.FKAd515014">
+      <End Role="User" EntitySet="User" />
+      <End Role="Ad" EntitySet="Ad" />
+    </AssociationSet>
+    <AssociationSet Name="FKAd594180" Association="HangerDatabaseModel.Store.FKAd594180">
+      <End Role="Subcategory" EntitySet="Subcategory" />
+      <End Role="Ad" EntitySet="Ad" />
+    </AssociationSet>
+    <AssociationSet Name="FKPhotos129746" Association="HangerDatabaseModel.Store.FKPhotos129746">
+      <End Role="Ad" EntitySet="Ad" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FKTags638329" Association="HangerDatabaseModel.Store.FKTags638329">
+      <End Role="Ad" EntitySet="Ad" />
+      <End Role="Tags" EntitySet="Tags" />
+    </AssociationSet>
+    <AssociationSet Name="FKSubcategor437486" Association="HangerDatabaseModel.Store.FKSubcategor437486">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Subcategory" EntitySet="Subcategory" />
+    </AssociationSet>
+    <AssociationSet Name="FKForumTopic789626" Association="HangerDatabaseModel.Store.FKForumTopic789626">
+      <End Role="ForumCategories" EntitySet="ForumCategories" />
+      <End Role="ForumTopic" EntitySet="ForumTopic" />
+    </AssociationSet>
+    <AssociationSet Name="FKForumPosts217238" Association="HangerDatabaseModel.Store.FKForumPosts217238">
+      <End Role="User" EntitySet="User" />
+      <End Role="ForumPosts" EntitySet="ForumPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FKForumPosts909218" Association="HangerDatabaseModel.Store.FKForumPosts909218">
+      <End Role="ForumTopic" EntitySet="ForumTopic" />
+      <End Role="ForumPosts" EntitySet="ForumPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FKForumTopic340069" Association="HangerDatabaseModel.Store.FKForumTopic340069">
+      <End Role="User" EntitySet="User" />
+      <End Role="ForumTopic" EntitySet="ForumTopic" />
+    </AssociationSet>
+    <AssociationSet Name="FKMessage241730" Association="HangerDatabaseModel.Store.FKMessage241730">
+      <End Role="User" EntitySet="User" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FKMessage63833" Association="HangerDatabaseModel.Store.FKMessage63833">
+      <End Role="User" EntitySet="User" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FKPhotos982370" Association="HangerDatabaseModel.Store.FKPhotos982370">
+      <End Role="PhotoSite" EntitySet="PhotoSite" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FKUser322553" Association="HangerDatabaseModel.Store.FKUser322553">
+      <End Role="UserPhoto" EntitySet="UserPhoto" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FKSubsubcate564795" Association="HangerDatabaseModel.Store.FKSubsubcate564795">
+      <End Role="Subcategory" EntitySet="Subcategory" />
+      <End Role="SubSubcategory" EntitySet="SubSubcategory" />
+    </AssociationSet>
+    <AssociationSet Name="FKAd584267" Association="HangerDatabaseModel.Store.FKAd584267">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Ad" EntitySet="Ad" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Ad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Price" Type="real" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="255" />
+    <Property Name="Date_start" Type="datetime" Nullable="true" />
+    <Property Name="SizeId" Type="int" Nullable="false" />
+    <Property Name="ColorId" Type="int" Nullable="false" />
+    <Property Name="SubcategoryId" Type="int" Nullable="false" />
+    <Property Name="ConditionId" Type="int" Nullable="false" />
+    <Property Name="Swap" Type="bit" Nullable="true" />
+    <Property Name="BrandId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Color">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Condition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ForumCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ForumPosts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ForumTopicId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Content" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ForumTopic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="ForumCategoriesId" Type="int" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Subject" Type="varchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId2" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Context" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Mail" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Photo" Type="varbinary(max)" Nullable="false" />
+    <Property Name="AdId" Type="int" Nullable="false" />
+    <Property Name="FIle_name" Type="varchar" Nullable="true" MaxLength="255" />
+    <Property Name="Main_photo" Type="bit" Nullable="true" />
+    <Property Name="PhotoSiteId" Type="int" Nullable="true" />
+    <Property Name="Type" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PhotoSite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Site_name" Type="varchar" Nullable="true" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Size">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="255" />
+    <Property Name="Uk_size" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Nuber_size" Type="varchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Subcategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="255" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tags">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="AdId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Profil_name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Mail" Type="varchar" Nullable="true" MaxLength="255" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Date_access" Type="datetime" Nullable="false" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="255" />
+    <Property Name="UserPhotoId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="UserPhoto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Photo" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="SubSubcategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="varchar" Nullable="true" MaxLength="255" />
+    <Property Name="SubcategoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <Association Name="FKAd307749">
+    <End Role="Condition" Type="HangerDatabaseModel.Store.Condition" Multiplicity="1" />
+    <End Role="Ad" Type="HangerDatabaseModel.Store.Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Condition">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="ConditionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAd464028">
+    <End Role="Size" Type="HangerDatabaseModel.Store.Size" Multiplicity="1" />
+    <End Role="Ad" Type="HangerDatabaseModel.Store.Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Size">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="SizeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAd475152">
+    <End Role="Color" Type="HangerDatabaseModel.Store.Color" Multiplicity="1" />
+    <End Role="Ad" Type="HangerDatabaseModel.Store.Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Color">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="ColorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAd515014">
+    <End Role="User" Type="HangerDatabaseModel.Store.User" Multiplicity="1" />
+    <End Role="Ad" Type="HangerDatabaseModel.Store.Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAd594180">
+    <End Role="Subcategory" Type="HangerDatabaseModel.Store.Subcategory" Multiplicity="1" />
+    <End Role="Ad" Type="HangerDatabaseModel.Store.Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subcategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="SubcategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPhotos129746">
+    <End Role="Ad" Type="HangerDatabaseModel.Store.Ad" Multiplicity="1" />
+    <End Role="Photos" Type="HangerDatabaseModel.Store.Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="AdId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKTags638329">
+    <End Role="Ad" Type="HangerDatabaseModel.Store.Ad" Multiplicity="1" />
+    <End Role="Tags" Type="HangerDatabaseModel.Store.Tags" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tags">
+        <PropertyRef Name="AdId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKSubcategor437486">
+    <End Role="Category" Type="HangerDatabaseModel.Store.Category" Multiplicity="1" />
+    <End Role="Subcategory" Type="HangerDatabaseModel.Store.Subcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subcategory">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKForumTopic789626">
+    <End Role="ForumCategories" Type="HangerDatabaseModel.Store.ForumCategories" Multiplicity="1" />
+    <End Role="ForumTopic" Type="HangerDatabaseModel.Store.ForumTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ForumCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ForumTopic">
+        <PropertyRef Name="ForumCategoriesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKForumPosts217238">
+    <End Role="User" Type="HangerDatabaseModel.Store.User" Multiplicity="1" />
+    <End Role="ForumPosts" Type="HangerDatabaseModel.Store.ForumPosts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ForumPosts">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKForumPosts909218">
+    <End Role="ForumTopic" Type="HangerDatabaseModel.Store.ForumTopic" Multiplicity="1" />
+    <End Role="ForumPosts" Type="HangerDatabaseModel.Store.ForumPosts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ForumTopic">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ForumPosts">
+        <PropertyRef Name="ForumTopicId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKForumTopic340069">
+    <End Role="User" Type="HangerDatabaseModel.Store.User" Multiplicity="1" />
+    <End Role="ForumTopic" Type="HangerDatabaseModel.Store.ForumTopic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ForumTopic">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKMessage241730">
+    <End Role="User" Type="HangerDatabaseModel.Store.User" Multiplicity="1" />
+    <End Role="Message" Type="HangerDatabaseModel.Store.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="UserId2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKMessage63833">
+    <End Role="User" Type="HangerDatabaseModel.Store.User" Multiplicity="1" />
+    <End Role="Message" Type="HangerDatabaseModel.Store.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKPhotos982370">
+    <End Role="PhotoSite" Type="HangerDatabaseModel.Store.PhotoSite" Multiplicity="0..1" />
+    <End Role="Photos" Type="HangerDatabaseModel.Store.Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhotoSite">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="PhotoSiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKUser322553">
+    <End Role="UserPhoto" Type="HangerDatabaseModel.Store.UserPhoto" Multiplicity="0..1" />
+    <End Role="User" Type="HangerDatabaseModel.Store.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserPhoto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserPhotoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKSubsubcate564795">
+    <End Role="Subcategory" Type="HangerDatabaseModel.Store.Subcategory" Multiplicity="1" />
+    <End Role="SubSubcategory" Type="HangerDatabaseModel.Store.SubSubcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subcategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubSubcategory">
+        <PropertyRef Name="SubcategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKAd584267">
+    <End Role="Brand" Type="HangerDatabaseModel.Store.Brand" Multiplicity="0..1" />
+    <End Role="Ad" Type="HangerDatabaseModel.Store.Ad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ad">
+        <PropertyRef Name="BrandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HangerDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ad">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Single" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Date_start" Type="DateTime" Precision="3" />
+          <Property Name="SizeId" Type="Int32" Nullable="false" />
+          <Property Name="ColorId" Type="Int32" Nullable="false" />
+          <Property Name="SubcategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ConditionId" Type="Int32" Nullable="false" />
+          <Property Name="Swap" Type="Boolean" />
+          <NavigationProperty Name="Condition" Relationship="Self.FKAd307749" FromRole="Ad" ToRole="Condition" />
+          <NavigationProperty Name="Size" Relationship="Self.FKAd464028" FromRole="Ad" ToRole="Size" />
+          <NavigationProperty Name="Color" Relationship="Self.FKAd475152" FromRole="Ad" ToRole="Color" />
+          <NavigationProperty Name="User" Relationship="Self.FKAd515014" FromRole="Ad" ToRole="User" />
+          <NavigationProperty Name="Subcategory" Relationship="Self.FKAd594180" FromRole="Ad" ToRole="Subcategory" />
+          <NavigationProperty Name="Photos" Relationship="Self.FKPhotos129746" FromRole="Ad" ToRole="Photos" />
+          <NavigationProperty Name="Tags" Relationship="Self.FKTags638329" FromRole="Ad" ToRole="Tags" />
+          <Property Name="BrandId" Type="Int32" />
+          <NavigationProperty Name="Brand" Relationship="HangerDatabaseModel.FKAd584267" FromRole="Ad" ToRole="Brand" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Subcategory" Relationship="Self.FKSubcategor437486" FromRole="Category" ToRole="Subcategory" />
+        </EntityType>
+        <EntityType Name="Color">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Ad" Relationship="Self.FKAd475152" FromRole="Color" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="Condition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ad" Relationship="Self.FKAd307749" FromRole="Condition" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="ForumCategories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ForumTopic" Relationship="Self.FKForumTopic789626" FromRole="ForumCategories" ToRole="ForumTopic" />
+        </EntityType>
+        <EntityType Name="ForumPosts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ForumTopicId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="Self.FKForumPosts217238" FromRole="ForumPosts" ToRole="User" />
+          <NavigationProperty Name="ForumTopic" Relationship="Self.FKForumPosts909218" FromRole="ForumPosts" ToRole="ForumTopic" />
+        </EntityType>
+        <EntityType Name="ForumTopic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ForumCategoriesId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Subject" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ForumCategories" Relationship="Self.FKForumTopic789626" FromRole="ForumTopic" ToRole="ForumCategories" />
+          <NavigationProperty Name="ForumPosts" Relationship="Self.FKForumPosts909218" FromRole="ForumTopic" ToRole="ForumPosts" />
+          <NavigationProperty Name="User" Relationship="Self.FKForumTopic340069" FromRole="ForumTopic" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId2" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Context" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="Self.FKMessage241730" FromRole="Message" ToRole="User" />
+          <NavigationProperty Name="User1" Relationship="Self.FKMessage63833" FromRole="Message" ToRole="User" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="AdId" Type="Int32" Nullable="false" />
+          <Property Name="FIle_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Main_photo" Type="Boolean" />
+          <Property Name="PhotoSiteId" Type="Int32" />
+          <NavigationProperty Name="Ad" Relationship="Self.FKPhotos129746" FromRole="Photos" ToRole="Ad" />
+          <NavigationProperty Name="PhotoSite" Relationship="Self.FKPhotos982370" FromRole="Photos" ToRole="PhotoSite" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PhotoSite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Site_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Photos" Relationship="Self.FKPhotos982370" FromRole="PhotoSite" ToRole="Photos" />
+        </EntityType>
+        <EntityType Name="Size">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ad" Relationship="Self.FKAd464028" FromRole="Size" ToRole="Ad" />
+          <Property Name="Uk_size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nuber_size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Subcategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ad" Relationship="Self.FKAd594180" FromRole="Subcategory" ToRole="Ad" />
+          <NavigationProperty Name="Category" Relationship="Self.FKSubcategor437486" FromRole="Subcategory" ToRole="Category" />
+          <NavigationProperty Name="SubSubcategory" Relationship="HangerDatabaseModel.FKSubsubcate564795" FromRole="Subcategory" ToRole="SubSubcategory" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ad" Relationship="Self.FKTags638329" FromRole="Tags" ToRole="Ad" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Profil_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date_access" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UserPhotoId" Type="Int32" />
+          <NavigationProperty Name="Ad" Relationship="Self.FKAd515014" FromRole="User" ToRole="Ad" />
+          <NavigationProperty Name="ForumPosts" Relationship="Self.FKForumPosts217238" FromRole="User" ToRole="ForumPosts" />
+          <NavigationProperty Name="ForumTopic" Relationship="Self.FKForumTopic340069" FromRole="User" ToRole="ForumTopic" />
+          <NavigationProperty Name="Message" Relationship="Self.FKMessage241730" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="Message1" Relationship="Self.FKMessage63833" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="UserPhoto" Relationship="Self.FKUser322553" FromRole="User" ToRole="UserPhoto" />
+        </EntityType>
+        <EntityType Name="UserPhoto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="User" Relationship="Self.FKUser322553" FromRole="UserPhoto" ToRole="User" />
+        </EntityType>
+        <Association Name="FKAd307749">
+          <End Role="Condition" Type="Self.Condition" Multiplicity="1" />
+          <End Role="Ad" Type="Self.Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Condition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="ConditionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKAd464028">
+          <End Role="Size" Type="Self.Size" Multiplicity="1" />
+          <End Role="Ad" Type="Self.Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="SizeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKAd475152">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="Ad" Type="Self.Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKAd515014">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Ad" Type="Self.Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKAd594180">
+          <End Role="Subcategory" Type="Self.Subcategory" Multiplicity="1" />
+          <End Role="Ad" Type="Self.Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subcategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="SubcategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKPhotos129746">
+          <End Role="Ad" Type="Self.Ad" Multiplicity="1" />
+          <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="AdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKTags638329">
+          <End Role="Ad" Type="Self.Ad" Multiplicity="1" />
+          <End Role="Tags" Type="Self.Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ad">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tags">
+              <PropertyRef Name="AdId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKSubcategor437486">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Subcategory" Type="Self.Subcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subcategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKForumTopic789626">
+          <End Role="ForumCategories" Type="Self.ForumCategories" Multiplicity="1" />
+          <End Role="ForumTopic" Type="Self.ForumTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ForumCategories">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ForumTopic">
+              <PropertyRef Name="ForumCategoriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKForumPosts217238">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ForumPosts" Type="Self.ForumPosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKForumPosts909218">
+          <End Role="ForumTopic" Type="Self.ForumTopic" Multiplicity="1" />
+          <End Role="ForumPosts" Type="Self.ForumPosts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ForumTopic">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ForumPosts">
+              <PropertyRef Name="ForumTopicId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKForumTopic340069">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ForumTopic" Type="Self.ForumTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ForumTopic">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMessage241730">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserId2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKMessage63833">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKPhotos982370">
+          <End Role="PhotoSite" Type="Self.PhotoSite" Multiplicity="0..1" />
+          <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhotoSite">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="PhotoSiteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKUser322553">
+          <End Role="UserPhoto" Type="Self.UserPhoto" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserPhoto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserPhotoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HangerDatabase" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ad" EntityType="Self.Ad" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <EntitySet Name="Color" EntityType="Self.Color" />
+          <EntitySet Name="Condition" EntityType="Self.Condition" />
+          <EntitySet Name="ForumCategories" EntityType="Self.ForumCategories" />
+          <EntitySet Name="ForumPosts" EntityType="Self.ForumPosts" />
+          <EntitySet Name="ForumTopic" EntityType="Self.ForumTopic" />
+          <EntitySet Name="Message" EntityType="Self.Message" />
+          <EntitySet Name="Photos" EntityType="Self.Photos" />
+          <EntitySet Name="PhotoSite" EntityType="Self.PhotoSite" />
+          <EntitySet Name="Size" EntityType="Self.Size" />
+          <EntitySet Name="Subcategory" EntityType="Self.Subcategory" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="UserPhoto" EntityType="Self.UserPhoto" />
+          <AssociationSet Name="FKAd307749" Association="Self.FKAd307749">
+            <End Role="Condition" EntitySet="Condition" />
+            <End Role="Ad" EntitySet="Ad" />
+          </AssociationSet>
+          <AssociationSet Name="FKAd464028" Association="Self.FKAd464028">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="Ad" EntitySet="Ad" />
+          </AssociationSet>
+          <AssociationSet Name="FKAd475152" Association="Self.FKAd475152">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="Ad" EntitySet="Ad" />
+          </AssociationSet>
+          <AssociationSet Name="FKAd515014" Association="Self.FKAd515014">
+            <End Role="User" EntitySet="User" />
+            <End Role="Ad" EntitySet="Ad" />
+          </AssociationSet>
+          <AssociationSet Name="FKAd594180" Association="Self.FKAd594180">
+            <End Role="Subcategory" EntitySet="Subcategory" />
+            <End Role="Ad" EntitySet="Ad" />
+          </AssociationSet>
+          <AssociationSet Name="FKPhotos129746" Association="Self.FKPhotos129746">
+            <End Role="Ad" EntitySet="Ad" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FKTags638329" Association="Self.FKTags638329">
+            <End Role="Ad" EntitySet="Ad" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FKSubcategor437486" Association="Self.FKSubcategor437486">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Subcategory" EntitySet="Subcategory" />
+          </AssociationSet>
+          <AssociationSet Name="FKForumTopic789626" Association="Self.FKForumTopic789626">
+            <End Role="ForumCategories" EntitySet="ForumCategories" />
+            <End Role="ForumTopic" EntitySet="ForumTopic" />
+          </AssociationSet>
+          <AssociationSet Name="FKForumPosts217238" Association="Self.FKForumPosts217238">
+            <End Role="User" EntitySet="User" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FKForumPosts909218" Association="Self.FKForumPosts909218">
+            <End Role="ForumTopic" EntitySet="ForumTopic" />
+            <End Role="ForumPosts" EntitySet="ForumPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FKForumTopic340069" Association="Self.FKForumTopic340069">
+            <End Role="User" EntitySet="User" />
+            <End Role="ForumTopic" EntitySet="ForumTopic" />
+          </AssociationSet>
+          <AssociationSet Name="FKMessage241730" Association="Self.FKMessage241730">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FKMessage63833" Association="Self.FKMessage63833">
+            <End Role="User" EntitySet="User" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FKPhotos982370" Association="Self.FKPhotos982370">
+            <End Role="PhotoSite" EntitySet="PhotoSite" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FKUser322553" Association="Self.FKUser322553">
+            <End Role="UserPhoto" EntitySet="UserPhoto" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <EntitySet Name="SubSubcategory" EntityType="HangerDatabaseModel.SubSubcategory" />
+          <AssociationSet Name="FKSubsubcate564795" Association="HangerDatabaseModel.FKSubsubcate564795">
+            <End Role="Subcategory" EntitySet="Subcategory" />
+            <End Role="SubSubcategory" EntitySet="SubSubcategory" />
+          </AssociationSet>
+          <EntitySet Name="Brand" EntityType="HangerDatabaseModel.Brand" />
+          <AssociationSet Name="FKAd584267" Association="HangerDatabaseModel.FKAd584267">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Ad" EntitySet="Ad" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SubSubcategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SubcategoryId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Subcategory" Relationship="HangerDatabaseModel.FKSubsubcate564795" FromRole="SubSubcategory" ToRole="Subcategory" />
+        </EntityType>
+        <Association Name="FKSubsubcate564795">
+          <End Type="HangerDatabaseModel.Subcategory" Role="Subcategory" Multiplicity="1" />
+          <End Type="HangerDatabaseModel.SubSubcategory" Role="SubSubcategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subcategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubSubcategory">
+              <PropertyRef Name="SubcategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ad" Relationship="HangerDatabaseModel.FKAd584267" FromRole="Brand" ToRole="Ad" />
+        </EntityType>
+        <Association Name="FKAd584267">
+          <End Type="HangerDatabaseModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="HangerDatabaseModel.Ad" Role="Ad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ad">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HangerDatabaseModelStoreContainer" CdmEntityContainer="HangerDatabase">
+    <EntitySetMapping Name="Ad">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Ad)">
+        <MappingFragment StoreEntitySet="Ad">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date_start" ColumnName="Date_start" />
+          <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+          <ScalarProperty Name="ColorId" ColumnName="ColorId" />
+          <ScalarProperty Name="SubcategoryId" ColumnName="SubcategoryId" />
+          <ScalarProperty Name="ConditionId" ColumnName="ConditionId" />
+          <ScalarProperty Name="Swap" ColumnName="Swap" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Category)">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Color">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Color)">
+        <MappingFragment StoreEntitySet="Color">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Condition">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Condition)">
+        <MappingFragment StoreEntitySet="Condition">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForumCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.ForumCategories)">
+        <MappingFragment StoreEntitySet="ForumCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForumPosts">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.ForumPosts)">
+        <MappingFragment StoreEntitySet="ForumPosts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ForumTopicId" ColumnName="ForumTopicId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForumTopic">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.ForumTopic)">
+        <MappingFragment StoreEntitySet="ForumTopic">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ForumCategoriesId" ColumnName="ForumCategoriesId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Message">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Message)">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId2" ColumnName="UserId2" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Context" ColumnName="Context" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Photos)">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="AdId" ColumnName="AdId" />
+          <ScalarProperty Name="FIle_name" ColumnName="FIle_name" />
+          <ScalarProperty Name="Main_photo" ColumnName="Main_photo" />
+          <ScalarProperty Name="PhotoSiteId" ColumnName="PhotoSiteId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoSite">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.PhotoSite)">
+        <MappingFragment StoreEntitySet="PhotoSite">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Site_name" ColumnName="Site_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Size">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Size)">
+        <MappingFragment StoreEntitySet="Size">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Uk_size" ColumnName="Uk_size" />
+          <ScalarProperty Name="Nuber_size" ColumnName="Nuber_size" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subcategory">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Subcategory)">
+        <MappingFragment StoreEntitySet="Subcategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Tags)">
+        <MappingFragment StoreEntitySet="Tags">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AdId" ColumnName="AdId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.User)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Profil_name" ColumnName="Profil_name" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Date_access" ColumnName="Date_access" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserPhotoId" ColumnName="UserPhotoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPhoto">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.UserPhoto)">
+        <MappingFragment StoreEntitySet="UserPhoto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubSubcategory">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.SubSubcategory)">
+        <MappingFragment StoreEntitySet="SubSubcategory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SubcategoryId" ColumnName="SubcategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Brand">
+      <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Brand)">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

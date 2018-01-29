@@ -1,0 +1,81 @@
+﻿ ,m.carousel {
+  height: 650px;
+  margin-top: 60px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 650px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: static;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height:100%;
+  
+}
+
+
+
+.item,
+.active,
+.carousel-inner {
+  height: 100%;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+
+.btn-primary{
+    background-color: #dc679a;
+    border: 2px solid #dc679a;
+    color: #ffffff;
+    border-radius:6px;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+   background-color: white;
+    color: #dc679a;
+    border: 2px solid #dc679a;
+    border-radius:6px;
+}
+
+.carousel-caption{
+    bottom:100px;
+
+}
+
+.carousel-caption h1{
+    font-size:60px;
+ }
+
+.carousel-caption h2{
+    font-size:25px;
+    padding-bottom: 20px;
+ }
+
+/* Register
+-------------------------------------------------- */
+.btn.btn-default{
+    background-color: #dc679a;
+    border: 2px solid #dc679a;
+    color: #ffffff;
+    border-radius:6px;
+}
+
+btn-default:hover{
+    background-color: #dc679a;
+    border: 2px solid #dc679a;
+    color: #ffffff;
+    border-radius:6px;
+}

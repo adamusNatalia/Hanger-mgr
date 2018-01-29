@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "EmailRequest";
+}
+<style>
+    nav {
+    display:inline-block;
+    vertical-align: middle;
+    }
+    a{
+        display:block;
+    }
+</style>
+
+<h2>EmailRequest</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request for Assistance</title>
+</head>
+<body>
+    <h2>Submit Email Request for Assistance</h2>
+    <form method="post" action="ProcessRequest">
+        <div>
+            Your name:
+            <input type="text" name="customerName" />
+        </div>
+
+        <div>
+            Your email address:
+            <input type="text" name="customerEmail" />
+        </div>
+
+        <div>
+            Details about your problem: <br />
+            <textarea name="customerRequest" cols="45" rows="4"></textarea>
+        </div>
+
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</body>
+</html>
+
+<!DOCTYPE html>
+<header>
+    <title>Product Image Switcher Demo - DaBrook Webucation</title>
+
+
+    <script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+
+</header>
+<body>
+    <article class="item">
+        <h1>Custom Chucks</h1>
+        <aside class="preview">
+            <img id="main" src="images/shoe-inside.png" width="300" height="220">
+            <nav>
+                <a href="images/shoe-inside.png"><img src="images/shoe-inside.png" width="100" height="73"></a>
+                <a href="images/shoe-front.png"><img src="images/shoe-front.png" width="91" height="73"></a>
+                <a href="images/shoe-back.png"><img src="images/shoe-back.png" width="91" height="73"></a>
+            </nav>
+        </aside>
+        <p>Check out these rad shoes I built with Converse's online builder.</p>
+        <p>I really just built them to demonstrate how the produce image viewer could be used, but I would definitely wear these shoes.</p>
+        <p>If these were for sale we'd have a button like this: <input type="submit" value="$67.00 Buy"></p>
+        <p class="more">If you really want to buy these shoes, <a href="https://www.converse.com/#/products/shoes/converseone/builder/chuTayOxCanNeo1002,,,251218984">you can</a>.</p>
+    </article>
+    <section class="source">
+        <p>Return to the <a href="http://dabrk.co/image-switcher-tutorial">Product Image Switcher with jQuery Tutorial</a></p>
+    </section>
+
+    <article class="item">
+        <h1>Custom Chucks</h1>
+        <aside class="preview">
+            <nav>
+                <a href="~/Pictures/Icons/avatar.png"><img src="~/Pictures/Icons/avatar.png" width="100" height="73"></a>
+                <a href="~/Pictures/Icons/close.png"><img src="~/Pictures/Icons/close.png" width="91" height="73"></a>
+                <a href="~/Pictures/Icons/pen.png"><img src="~/Pictures/Icons/pen.png" width="91" height="73"></a>
+            </nav>
+            <img id="main" src="~/Pictures/Icons/avatar.png" width="300" height="220">
+        
+        </aside>
+        <p>Check out these rad shoes I built with Converse's online builder.</p>
+        <p>I really just built them to demonstrate how the produce image viewer could be used, but I would definitely wear these shoes.</p>
+        <p>If these were for sale we'd have a button like this: <input type="submit" value="$67.00 Buy"></p>
+        <p class="more">If you really want to buy these shoes, <a href="https://www.converse.com/#/products/shoes/converseone/builder/chuTayOxCanNeo1002,,,251218984">you can</a>.</p>
+    </article>
+</body>		
+
+<script src="~/js/switcher.js"></script>
+<script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>

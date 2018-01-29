@@ -1,0 +1,113 @@
+﻿
+@model Hanger.Models.Ad
+    ViewBag.Title = "Photo";
+}
+
+<h2>Photo</h2>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"><span class="glyphicon glyphicon-camera"></span> Add picture</h1>
+
+        @using (Html.BeginForm("MainPhoto", "Ad", new { adId = ViewBag.ad }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <input type="file" name="file" class="btn btn-default" />
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit" class="btn btn-default" />
+                <img id="loader" src="~/pic/ajax-loader.gif" style="display:none;" />
+            </div>
+        }
+
+        @using (Html.BeginForm("ModelPhoto", "Ad", new { adId = ViewBag.ad }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <input type="file" name="file" class="btn btn-default" />
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit" class="btn btn-default" />
+                <img id="loader" src="~/pic/ajax-loader.gif" style="display:none;" />
+            </div>
+        }
+
+        @using (Html.BeginForm("BackPhoto", "Ad", new { adId = ViewBag.ad }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <input type="file" name="file" class="btn btn-default" />
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit" class="btn btn-default" />
+                <img id="loader" src="~/pic/ajax-loader.gif" style="display:none;" />
+            </div>
+        }
+
+        @using (Html.BeginForm("ZoomPhoto", "Ad", new { adId = ViewBag.ad }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <input type="file" name="file" class="btn btn-default" />
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit" class="btn btn-default" />
+                <img id="loader" src="~/pic/ajax-loader.gif" style="display:none;" />
+            </div>
+        }
+
+
+        
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"><span class="glyphicon glyphicon-picture"></span> Portfolio</h1>
+        <div class="row">
+            @{int cellCount = 0; }
+             @if (Session["LogedUserID"] != null)
+        {
+                @*<table class="table-condensed" width="500" height="500" cellpadding="10">
+                    @foreach (var item in new Hanger.Models.HangerDatabase().Photos.ToList().Where(p => p.AdId == ViewBag.ad))// new Projek2.Models.DatabaseEntities().Users.ToList().Where(u => u.UserId == (Session["CurrentUserEmail"] as Projek2.Models.User).UserId).First().UserId))
+                    {
+                        if (cellCount % 3 == 0)
+                        {
+                            @:<tr>
+                        }
+
+                                <td>
+                                    <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" width="250" />
+
+                                </td>
+                                cellCount++;
+                                
+
+                        if (cellCount % 3 == 0)
+                                {
+                                @:</tr>
+                        }
+
+                    }
+                </table>*@
+
+                foreach (var item in new Hanger.Models.HangerDatabase().Photos)
+                {
+                    if (item.AdId == Model.Id)
+                    {
+                       
+
+                       <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" width="250" />
+                        using (Html.BeginForm("Delete", "Ad", new {id=item.Id, adId = ViewBag.ad }, FormMethod.Post))
+                        {
+                            @*@Html.Hidden("id", item.Id)*@
+                            <input type="submit" value="Delete" class="btn btn-default" />
+                        }
+
+                     }
+
+                 }
+             }
+        </div>
+
+    </div>
+
+</div>

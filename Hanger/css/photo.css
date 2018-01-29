@@ -1,0 +1,31 @@
+﻿body {
+    margin-top: 60px;
+    background-color: #ebebeb;
+    overflow-x: hidden;
+    margin-left: 20px;
+}
+
+.btn{
+padding: 5px 10px;
+}
+
+.inline{
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    display: inherit;
+}
+.page-header{
+    margin-left:20px;
+}
+
+.view {
+    width: 50%;
+    margin-top: 20px;
+}
+
+img{
+   margin-right: 15px;
+}

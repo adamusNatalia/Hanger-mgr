@@ -1,0 +1,34 @@
+﻿@model Hanger.Models.Ad
+@{
+    ViewBag.Title = "Contact";
+}
+
+<h2>Contact</h2>
+
+@Styles.Render("~/css/style.css")
+
+@Styles.Render("~/css/contact.css")
+
+
+
+    <!-- Popup Div Starts Here -->
+    <div id="popupContact">
+        <!-- Contact Us Form -->
+
+        @using (Html.BeginForm("SendMail", "Home",  FormMethod.Post))
+        { <form action="#" id="form" method="post" name="form">
+                       
+                        <h2>Skontaktuj się z nami</h2>
+                        <hr>
+                        <input id="name" name="subject" placeholder="Temat" type="text">
+                        <input id="email" name="email" placeholder="Email" type="text">
+                        <textarea id="msg" name="body" placeholder="Wiadomość"></textarea>
+
+                        <input onclick="check_empty()" type="submit" class="btn" value="Wyślij" />
+
+
+                        @*<p><button class="btn btn-lg btn-success btn-block" type="submit" onclick="location.href='@Url.Action("SendMail", "Ad")'">Wyślij</button></p>*@
+                    </form>
+        }
+    </div>
+    <!-- Popup Div Ends Here -->
