@@ -18,8 +18,9 @@
         <br /><br />
         @Html.TextBox("search")<input type="submit" value="Szukaj" /><br />
 
-        @Html.ActionLink("Cena", "Index", new { sortOrder = ViewBag.PriceSortParm })
+        @Html.ActionLink("Cena", "Index1", new { sortOrder = ViewBag.ThemeSortParm })
         @Html.DropDownList("Size", "Wszystkie")
+
         <input type="submit" value="Filter" />
     }
 </p>

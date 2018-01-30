@@ -11,65 +11,67 @@
 
 @{ int j = Model.Count() - 1;}
 <div id="wrapper">
-    <div id="columns">
+    <div id="row">
 
 
         @while (j >= 0)
 
         {
 
-            <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })" class="navbar-left">
-                <div class="pin">
-                    @{Boolean isPhoto = false; }
-                    @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
-                    {
-                        if (item.AdId == Model.ElementAt(j).Id && item.Main_photo == true && isPhoto == false)
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 mb-4">
+                <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })" class="navbar-left">
+                    <div class="pin">
+                        @{Boolean isPhoto = false; }
+                        @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
                         {
+                            if (item.AdId == Model.ElementAt(j).Id && item.Main_photo == true && isPhoto == false)
+                            {
 
-                            <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" /><br />
-                            isPhoto = true;
-                        }
-
-                    }
-
-                    @if (isPhoto == false)
-                    {
-                        <img src="~/Pictures/dress.jpg" /><br />
-                    }
-
-
-                    @if ((@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)).ToString() == "")
-                    {
-                        <p class="alignright" style="width:100%">
-
-                            <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
-                        </p>
-                        <p class="right">
-
-                            <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
-                        </p>
-
-                    }
-                    else
-                    {
-                        <p class="alignleft">
-
-                            <b>@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)</b>
-                        </p>
-                        <p class="alignright">
-
-                            <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
-                        </p>
-                        <p class="right">
-
-                            <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
-                        </p>
-                    }
-                </div>
-            </a>
-                            j--;
+                                <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" /><br />
+                                isPhoto = true;
+                            }
 
                         }
-    </div>
+
+                        @if (isPhoto == false)
+                        {
+                            <img src="~/Pictures/dress.jpg" /><br />
+                        }
+
+
+                        @if ((@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)).ToString() == "")
+                        {
+                            <p class="alignright" style="width:100%">
+
+                                <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
+                            </p>
+                            <p class="right">
+
+                                <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+                            </p>
+
+                        }
+                        else
+                        {
+                            <p class="alignleft">
+
+                                <b>@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)</b>
+                            </p>
+                            <p class="alignright">
+
+                                <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
+                            </p>
+                            <p class="right">
+
+                                <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+                            </p>
+                        }
+                    </div>
+                </a>
+              </div>
+                j--;
+
+                }
+            </div>
 </div>
 <script src="~/js/contact.js"></script>

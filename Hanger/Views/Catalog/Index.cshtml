@@ -24,6 +24,9 @@
             <th>
                 <label class="control-label col-md-2" for="SizeId">Cena</label>
             </th>
+            <th>
+                @Html.ActionLink("Cena", "Index", new { sortOrder = ViewBag.ThemeSortParm })
+            </th>
 
             <th></th>
         </tr>
@@ -129,4 +132,7 @@
                             }
 </div>
 
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page}))
+
+@*@Html.PagedListPager(Model, page => Url.Action("Index", new { page}))*@
+@*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort }))*@
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentSize=ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2 }))

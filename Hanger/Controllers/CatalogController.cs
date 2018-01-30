@@ -106,8 +106,32 @@ namespace Hanger.Controllers
             return View(ad.ToList().ToPagedList(page ?? 1, 9));
         }
 
-        public ActionResult Index(int id, string size, string brand, string condition, string color,string price1, string price2, int? page)
+        public ActionResult Index(int id, string sortOrder, string currentSize, string size, string currentBrand, string brand, string currentCondition, string condition, string color, string currentColor, string price1, string currentPrice1, string price2, string currentPrice2, int? page)
         {
+
+            ViewBag.CurrentSort = sortOrder;
+
+            if (size != null || brand != null || condition != null || color != null || price1 != null || price2 != null )
+            {
+                page = 1;
+            }
+            else
+            {
+                size = currentSize;
+                brand = currentBrand;
+                condition = currentCondition;
+                color = currentColor;
+                price1 = currentPrice1;
+                price2 = currentPrice2;
+            }
+
+            ViewBag.CurrentSize= size;
+            ViewBag.CurrentBrand = brand;
+            ViewBag.CurrentCondition = condition;
+            ViewBag.CurrentColor = color;
+            ViewBag.CurrentPrice1 = price1;
+            ViewBag.CurrentPrice2 = price2;
+  
 
             var ad = from s in db.Ad
                     where (s.SubcategoryId == id)
@@ -252,7 +276,24 @@ namespace Hanger.Controllers
 
             }
 
-            ad = ad.OrderByDescending(s => s.Id);
+            ViewBag.ThemeSortParm = sortOrder == "Price" ? "price_desc" : "Price";
+           
+
+            switch (sortOrder)
+            {
+                case "price_desc":
+                    ad = ad.OrderByDescending(a => a.Price);
+                    break;
+                case "Price":
+                    ad = ad.OrderBy(a => a.Price);
+                    break;
+            
+                default:
+                    ad = ad.OrderBy(s => s.Id);
+                    break;
+            }
+
+            //ad = ad.OrderByDescending(s => s.Id);
             return View(ad.ToList().ToPagedList(page ?? 1, 32));
         }
 
