@@ -111,21 +111,25 @@ namespace Hanger.Controllers
 
             ViewBag.CurrentSort = sortOrder;
 
-            if (size != null || brand != null || condition != null || color != null || price1 != null || price2 != null )
+            if (size != null  || brand != null || condition != null || color != null || price1 != null || price2 != null )
             {
                 page = 1;
+                size= size == "" ? null : size;
             }
             else
             {
+                // size = currentSize == "Wszystkie" ? currentSize : null;
                 size = currentSize;
                 brand = currentBrand;
                 condition = currentCondition;
                 color = currentColor;
                 price1 = currentPrice1;
                 price2 = currentPrice2;
+
             }
 
-            ViewBag.CurrentSize= size;
+            //ViewBag.CurrentSize= size == "" ? size : "Wszystkie";
+            ViewBag.CurrentSize = size;
             ViewBag.CurrentBrand = brand;
             ViewBag.CurrentCondition = condition;
             ViewBag.CurrentColor = color;

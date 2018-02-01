@@ -24,52 +24,51 @@
             <th>
                 <label class="control-label col-md-2" for="SizeId">Cena</label>
             </th>
-            <th>
-                @Html.ActionLink("Cena", "Index", new { sortOrder = ViewBag.ThemeSortParm })
-            </th>
 
             <th></th>
         </tr>
 
         <tr>
             <td>
-                @Html.DropDownList("Size", "Wszystkie")
-            </td>
-            <td>
-                @Html.DropDownList("Brand", "Wszystkie")
-            </td>
-            <td>
-                @Html.DropDownList("Color", "Wszystkie")
-            </td>
-            <td>
-                @Html.DropDownList("Condition", "Wszystkie")
-            </td>
-            <td>
-                Od @Html.DropDownList("Price1", "")
-                do @Html.DropDownList("Price2", "")
-            </td>
-            <td>
-                <input type="submit"  value="" class="btn btn-search" style="padding: 0px; " />
-            </td>
-        </tr>
-    </table>
-    }
+               @* @Html.DropDownList("Size", new SelectList(ViewBag.size,"value","text",ViewBag.CurrentSize))*@
+                @Html.DropDownList("Size", ViewBag.CurrentSize  as string == ""? ViewBag.CurrentSize as string : "Wszystkie" )
+                </td>
+                <td>
+                    @Html.DropDownList("Brand", "Wszystkie")
+                </td>
+                <td>
+                    @Html.DropDownList("Color", "Wszystkie")
+                </td>
+                <td>
+                    @Html.DropDownList("Condition", ViewBag.CurrentCondition  == null ?  "Wszystkie" : ViewBag.CurrentCondition as string)
+                </td>
+                <td>
+                    Od @Html.DropDownList("Price1", "")
+                    do @Html.DropDownList("Price2", "")
+                </td>
+                <td>
+                    @Html.ActionLink("Cena", "Index", new { sortOrder = ViewBag.ThemeSortParm, currentSize = ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2 })
+                    <input type="submit"  value="" class="btn btn-search" style="padding: 0px; " />
+                </td>
+            </tr>
+        </table>
+        }
 
 
 
 
 
-<div id="wrapper">
+    <div id="wrapper">
 
-    @if (Model.Count() == 0)
-    {
-        <div class="no-items" style="text-align:center">Brak ogłoszeń</div>
-    }
-    else {
-    <div class="row">
+        @if (Model.Count() == 0)
+        {
+            <div class="no-items" style="text-align:center">Brak ogłoszeń</div>
+        }
+        else {
+        <div class="row">
 
 
-        @*@for (int i = 0; i < 16 && j>=0; i++)*@
+            @*@for (int i = 0; i < 16 && j>=0; i++)*@
         @while (j <= Model.Count() - 1)
 
         {
@@ -85,9 +84,9 @@
 
                                 <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" /><br />
                                 isPhoto = true;
-                            }
+                         }
 
-                        }
+                    }
 
                         @if (isPhoto == false)
                     {
@@ -135,4 +134,4 @@
 
 @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page}))*@
 @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort }))*@
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentSize=ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2 }))
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.ThemeSortParm, currentSize=ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2 }))
