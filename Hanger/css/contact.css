@@ -139,3 +139,9 @@ h2{
         width: 960px;
     }
 }
+
+@media(max-width:767px) {
+    #nav{
+        display:none;
+    }
+}

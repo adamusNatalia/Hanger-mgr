@@ -3,6 +3,8 @@
 @model PagedList.IPagedList<Hanger.Models.Ad>
 
 @Styles.Render("~/css/new.css")
+
+
 @{ int j = 0;}
 @*<div style="padding-top: 70px;display: table; margin-left: 13%;" ><a href="index.html">Katalog</a> <a href="search.html" > > Damska Odzież</a> > Sukienki</div>*@
    <h2 class="page-header"><img alt="Brand" src="~/Pictures/Icons/hanger.png" class="img-header"> @ViewBag.subcategory</h2>
@@ -30,8 +32,9 @@
 
         <tr>
             <td>
-               @* @Html.DropDownList("Size", new SelectList(ViewBag.size,"value","text",ViewBag.CurrentSize))*@
-                @Html.DropDownList("Size", ViewBag.CurrentSize  as string == ""? ViewBag.CurrentSize as string : "Wszystkie" )
+                   @*@Html.DropDownList("Size", new SelectList(ViewBag.size,"value","text",ViewBag.CurrentSize))*@
+                   @*@Html.DropDownList("Size", ViewBag.CurrentSize  as string == ""? ViewBag.CurrentSize as string : "Wszystkie" )*@
+                   @Html.DropDownList("Size", "Wszystkie")
                 </td>
                 <td>
                     @Html.DropDownList("Brand", "Wszystkie")
@@ -40,15 +43,17 @@
                     @Html.DropDownList("Color", "Wszystkie")
                 </td>
                 <td>
-                    @Html.DropDownList("Condition", ViewBag.CurrentCondition  == null ?  "Wszystkie" : ViewBag.CurrentCondition as string)
+                    @*@Html.DropDownList("Condition", ViewBag.CurrentCondition  == null ?  "Wszystkie" : ViewBag.CurrentCondition as string)*@
+                    @Html.DropDownList("Condition", "Wszystkie")
                 </td>
                 <td>
                     Od @Html.DropDownList("Price1", "")
                     do @Html.DropDownList("Price2", "")
                 </td>
                 <td>
-                    @Html.ActionLink("Cena", "Index", new { sortOrder = ViewBag.ThemeSortParm, currentSize = ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2 })
                     <input type="submit"  value="" class="btn btn-search" style="padding: 0px; " />
+                    @Html.ActionLink(ViewBag.ThemeSortParm=="Price"  ?  "Cena rosnąco  ▲": "Cena malejąco  ▼", "Index", new { sortOrder = ViewBag.ThemeSortParm, currentSize = ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2,}, new { @class = "sorting" })
+
                 </td>
             </tr>
         </table>
@@ -135,3 +140,31 @@
 @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page}))*@
 @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort }))*@
 @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.ThemeSortParm, currentSize=ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2 }))
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+ <script> 
+
+   @* var y= document.getElementsByClassName("classname");
+    y.click(function () { y.css("border", "3px solid red"); });*@
+ 
+     $(".classname").click(function () {  $(".classname").css("border", "3px solid red"); })
+
+
+     $(".classname").click(function () {
+            try {
+                if (ViewBag.ThemeSortParmr == "Price") {
+                    $('.classname').text("Cana malejąco");
+                   
+                }
+                if (ViewBag.ThemeSortParmr == "price_desc") {
+                    $('.classname').text("Cena rosnąco");
+                }
+
+            } catch (e) {
+
+            }
+         })
+     
+        
+</script>

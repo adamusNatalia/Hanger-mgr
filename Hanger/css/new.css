@@ -289,3 +289,8 @@ a {
     margin-top: -3px
 }
 
+.sorting{
+    padding-left: 30px;
+    text-decoration: none !important;
+    color :#dc679a !important;
+}
