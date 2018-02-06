@@ -29,17 +29,31 @@ namespace Hanger.Controllers
 
         public ActionResult Product(int Id)
         {
-            Ad advertisement = db.Ad.Find(Id);
+            // Ad advertisement = db.Ad.Find(Id);
+            var advertisement = from a in db.Ad
+                                where (a.Id == Id)
+                                select a;
 
             const int MaxLength = 10;
-            var name = advertisement.Date_start.ToString();
+            var name = advertisement.FirstOrDefault().Date_start.ToString();
+
+
+
             if (name.Length > MaxLength)
                 name = name.Substring(0, MaxLength);
             //DateTime dateAndTime = advertisement.Date_start;
             ViewBag.date = name;
 
+            var ad = from s in db.Ad
+                     select s;
+            //ViewBag.AddCount = ad.Count();
+            ViewBag.Id = Id;
 
-            return View(advertisement);
+            ViewBag.index= ad.ToList().FindIndex(a => a.Id == Id);
+            ViewBag.model = ad.Count();
+      
+
+            return View(ad.ToList()); 
         }
         public ActionResult Photo1(int Id)
         {

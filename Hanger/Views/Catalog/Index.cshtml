@@ -52,8 +52,9 @@
                 </td>
                 <td>
                     <input type="submit"  value="" class="btn btn-search" style="padding: 0px; " />
-                    @Html.ActionLink(ViewBag.ThemeSortParm=="Price"  ?  "Cena rosnąco  ▲": "Cena malejąco  ▼", "Index", new { sortOrder = ViewBag.ThemeSortParm, currentSize = ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2,}, new { @class = "sorting" })
-
+                    @Html.ActionLink(ViewBag.CurrentSort == "Price" ? "Cena malejąco  ▼" : "Cena rosnąco  ▲", "Index", new { sortOrder = ViewBag.ThemeSortParm, currentSize = ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2,}, new { @class = "sorting" })
+                    @*ViewBag.CurrentSort=="Price"  ? "Cena malejąco  ▼"  : "Cena rosnąco  ▲"*@
+                    @*ViewBag.ThemeSortParm=="Price"  ?  "Cena rosnąco  ▲"  : "Cena malejąco  ▼"*@
                 </td>
             </tr>
         </table>
@@ -139,7 +140,7 @@
 
 @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page}))*@
 @*@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort }))*@
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.ThemeSortParm, currentSize=ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2 }))
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentSize=ViewBag.CurrentSize, currentBrand = ViewBag.CurrentBrand, currentCondition = ViewBag.CurrentCondition, currentColor = ViewBag.CurrentColor, currentPrice1 = ViewBag.CurrentPrice1, currentPrice2 = ViewBag.CurrentPrice2 }))
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 

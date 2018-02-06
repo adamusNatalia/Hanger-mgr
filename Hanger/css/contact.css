@@ -140,6 +140,14 @@ h2{
     }
 }
 
+@media (min-width: 960px) {
+
+    /* Remove the edge padding needed for mobile */
+    #mainview {
+        width: 960px;
+    }
+}
+
 @media(max-width:767px) {
     #nav{
         display:none;

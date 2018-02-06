@@ -1,4 +1,4 @@
-﻿@model Hanger.Models.Ad
+﻿@model IEnumerable<Hanger.Models.Ad>
 
 @{
     ViewBag.Title = "Product";
@@ -6,6 +6,13 @@
 @Styles.Render("~/css/style.css")
 
 @Styles.Render("~/css/contact.css")
+
+@Styles.Render("~/css/new.css")
+
+@{
+    Random rnd = new Random();
+}
+
 
 <style>
     nav {
@@ -20,40 +27,50 @@
 </style>
 <script src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
 
+@{ int j = ViewBag.index;}
 <body>
-    <article id="mainview">
-        
-      
-              @* <div id="images">
-                    @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
-                    {
-                        if (item.AdId == Model.Id && item.Main_photo == true)
-                        {
+    <div id="mainview">
+     @*
+       @{Boolean isAdd = false; }
+    @foreach (var add in Model)
+    {
+        if (add.Id == ViewBag.Id  && isAdd== false)
+        {
+*@
 
-                            <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))"  height="550"/><br />
+
+
+
+          @* <div id="images">
+                @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
+                {
+                    if (item.AdId == Model.Id && item.Main_photo == true)
+                    {
+
+                        <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))"  height="550"/><br />
+
+                    }
+
+                }
+
+
+                <div id="productthumbs">
+                    @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
+                {
+                    if (item.AdId == Model.Id)
+                    {
+                            <a href="#">
+
+                            <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" width="150" />
+                            </a>
 
                         }
 
                     }
 
 
-                    <div id="productthumbs">
-                        @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
-                    {
-                        if (item.AdId == Model.Id)
-                        {
-                                <a href="#">
-
-                                <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" width="150" />
-                                </a>
-
-                            }
-
-                        }
-
-
-                     </div>
-                </div>*@
+                 </div>
+            </div>*@
 
 
             @*<div id="images">
@@ -88,16 +105,18 @@
                 </div>*@
 
      @*   <aside class="preview">*@
+       
             <div id="nav" class="col-lg-2 col-md-2 col-sm-2">
                 <nav>
                     @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
                     {
-                        if (item.AdId == Model.Id)
-                        {
-                            <a href="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))">
+                        @*@if (item.AdId == Model.Id)*@
+                    if (item.AdId == Model.ElementAt(j).Id)
+                    {
+                        <a href="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))">
 
-                                <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" width="120" />
-                            </a>
+                            <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" width="120" />
+                        </a>
 
                         }
 
@@ -110,120 +129,120 @@
 
                 @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
             {
-                if (item.AdId == Model.Id && item.Main_photo == true)
+                if (item.AdId == Model.ElementAt(j).Id && item.Main_photo == true)
                 {
 
-                        <img id="main" class="center-block" src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" height="550" style="max-width:410px" /><br />
+                        <img id="main" class="center-block" src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" height="500" style="max-width:400px" /><br />
 
                     }
 
                 }
             </div>
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 mb-4">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 mb-4">
 
-            <div style="text-align:right; font-size:11px">
-                Data dodania: @ViewBag.date
-            </div>
+                <div style="text-align:right; font-size:11px">
+                    Data dodania: @ViewBag.date
+                </div>
 
 
-            <h1>@Html.DisplayFor(model => model.Title)</h1>
-            <strong id="price">@Html.DisplayFor(model => model.Price) zł</strong>
-            <p>@Html.DisplayFor(model => model.Description) </p>
-            <div>
-                @if ((@Html.DisplayFor(model => model.Brand.Name)).ToString() != "")
-                {
+                <h1>@Html.DisplayFor(model => model.ElementAt(j).Title)</h1>
+                <strong id="price">@Html.DisplayFor(model => model.ElementAt(j).Price) zł</strong>
+                <p>@Html.DisplayFor(model => model.ElementAt(j).Description) </p>
+                <div>
+                    @if ((@Html.DisplayFor(model => model.ElementAt(j).Brand.Name)).ToString() != "")
+                    {
+                        <div class="details-list__item-title">
+                            <strong id="info"><span class="title">Marka  </span></strong>
+                        </div>
+
+                        <div class="details-list__item-value">
+                            <strong id="info"><span class="color">@Html.DisplayFor(model => model.ElementAt(j).Brand.Name)</span></strong>
+                        </div>
+                    }
                     <div class="details-list__item-title">
-                        <strong id="info"><span class="title">Marka  </span></strong>
+                        <strong id="info"><span class="title">Rozmiar  </span></strong>
                     </div>
 
                     <div class="details-list__item-value">
-                        <strong id="info"><span class="color">@Html.DisplayFor(model => model.Brand.Name)</span></strong>
+                        <strong id="info"><span class="color">@Html.DisplayFor(model => model.ElementAt(j).Size.Name)</span></strong>
                     </div>
-                }
-                <div class="details-list__item-title">
-                    <strong id="info"><span class="title">Rozmiar  </span></strong>
-                </div>
+                    <div class="details-list__item-title">
+                        <strong id="info"><span class="title">Stan  </span></strong>
+                    </div>
 
-                <div class="details-list__item-value">
-                    <strong id="info"><span class="color">@Html.DisplayFor(model => model.Size.Name)</span></strong>
-                </div>
-                <div class="details-list__item-title">
-                    <strong id="info"><span class="title">Stan  </span></strong>
-                </div>
+                    <div class="details-list__item-value">
+                        <strong id="info"><span class="color">@Html.DisplayFor(model => model.ElementAt(j).Condition.Name)</span></strong>
+                    </div>
+                    <div class="details-list__item-title">
+                        <strong id="info"><span class="title">Kolor  </span></strong>
+                    </div>
 
-                <div class="details-list__item-value">
-                    <strong id="info"><span class="color">@Html.DisplayFor(model => model.Condition.Name)</span></strong>
-                </div>
-                <div class="details-list__item-title">
-                    <strong id="info"><span class="title">Kolor  </span></strong>
-                </div>
+                    <div class="details-list__item-value">
+                        <strong id="info"><span class="color">@Html.DisplayFor(model => model.ElementAt(j).Color.Name)</span></strong>
+                    </div>
+                    <div class="details-list__item-title">
+                        <strong id="info"><span class="title">Kategoria  </span></strong>
+                    </div>
 
-                <div class="details-list__item-value">
-                    <strong id="info"><span class="color">@Html.DisplayFor(model => model.Color.Name)</span></strong>
-                </div>
-                <div class="details-list__item-title">
-                    <strong id="info"><span class="title">Kategoria  </span></strong>
-                </div>
+                    <div class="details-list__item-value">
+                        <strong id="info"><span class="color">@Html.DisplayFor(model => model.ElementAt(j).Subcategory.Name)</span></strong>
+                    </div>
 
-                <div class="details-list__item-value">
-                    <strong id="info"><span class="color">@Html.DisplayFor(model => model.Subcategory.Name)</span></strong>
-                </div>
+                    <div class="details-list__item-title">
+                        <strong id="info"><span class="title">Możliwość wymiany  </span></strong>
+                    </div>
 
-                <div class="details-list__item-title">
-                    <strong id="info"><span class="title">Możliwość wymiany  </span></strong>
-                </div>
+                    <div class="details-list__item-value">
 
-                <div class="details-list__item-value">
+                        @if (Model.ElementAt(j).Swap == true)
+                        {
+                            <strong id="info"><span class="color">Tak</span></strong>
+                        }
+                        else
+                        {
+                            <strong id="info"><span class="color">Brak możliwości</span></strong>
+                        }
 
-                    @if (Model.Swap == true)
-                    {
-                        <strong id="info"><span class="color">Tak</span></strong>
-                    }
-                    else
-                    {
-                        <strong id="info"><span class="color">Brak możliwości</span></strong>
-                    }
+                    </div>
+                    <div class="details-list__item-title">
+                        <strong id="info"><span class="title">Użytkownik  </span></strong>
+                    </div>
 
-                </div>
-                <div class="details-list__item-title">
-                    <strong id="info"><span class="title">Użytkownik  </span></strong>
-                </div>
+                    <div class="details-list__item-value">
+                        @*<strong id="info"><span class="color">@Html.DisplayFor(model => model.User.Profil_name)</span></strong>*@
+                        <a href="@Url.Action("UserCatalog", "UserProfil", new { Id=Model.ElementAt(j).UserId})"><strong id="info"><span class="color" style="color: #dc679a; font-weight: bold;">@Html.DisplayFor(model => model.ElementAt(j).User.Profil_name)</span></strong></a>
+                    </div>
 
-                <div class="details-list__item-value">
-                    @*<strong id="info"><span class="color">@Html.DisplayFor(model => model.User.Profil_name)</span></strong>*@
-                    <a href="@Url.Action("UserCatalog", "UserProfil", new { Id=Model.UserId})"><strong id="info"><span class="color" style="color: #dc679a; font-weight: bold;">@Html.DisplayFor(model => model.User.Profil_name)</span></strong></a>
+
+
+
                 </div>
 
 
-
-
-            </div>
-
-
-            @if (Session["LogedUserID"] != null && (Session["LogedUserID"] as Hanger.Models.User).Id == Model.UserId)
+                @if (Session["LogedUserID"] != null && (Session["LogedUserID"] as Hanger.Models.User).Id == Model.ElementAt(j).UserId)
             {
-                <a href="@Url.Action("Edit", "Ad", new { id =  Model.Id })" class="btn btn-default2" style="margin-top: 10px;">Edycja ogłoszenia</a>
+                    <a href="@Url.Action("Edit", "Ad", new { id =  Model.ElementAt(j).Id })" class="btn btn-default2" style="margin-top: 10px;">Edycja ogłoszenia</a>
 
-                using (Html.BeginForm("Delete", "Ad", new { adId = Model.Id }, FormMethod.Post, new { style = "border:0px; padding:0px; margin-top: 10px;" }))
+                    using (Html.BeginForm("Delete", "Ad", new { adId = Model.ElementAt(j).Id }, FormMethod.Post, new { style = "border:0px; padding:0px; margin-top: 10px;" }))
+                    {
+                        @*@Html.Hidden("id", item.Id)*@
+                        <input type="submit" value="Usuń ogłoszenie" class="btn btn-default" />
+                    }
+                }
+                else
                 {
-                    @*@Html.Hidden("id", item.Id)*@
-                    <input type="submit" value="Usuń ogłoszenie" class="btn btn-default" />
+                    <button id="popup" onclick="div_show()" class="btn btn-default" style="margin-top: 10px; margin-bottom: 30px;">Wyślij wiadomość</button>
                 }
-            }
-            else
-            {
-                <button id="popup" onclick="div_show()" class="btn btn-default" style="margin-top: 10px;">Wyślij wiadomość</button>
-            }
 
 
 
-            <div id="abc">
-                <!-- Popup Div Starts Here -->
-                <div id="popupContact">
-                    <!-- Contact Us Form -->
+                <div id="abc">
+                    <!-- Popup Div Starts Here -->
+                    <div id="popupContact">
+                        <!-- Contact Us Form -->
 
-                    @using (Html.BeginForm("SendMail2", "Ad", new { to = @Html.DisplayFor(model => model.User.Profil_name), id = @Html.DisplayFor(model => model.Id) }, FormMethod.Post))
-                    { <form action="#" id="form" method="post" name="form">
+                        @using (Html.BeginForm("SendMail2", "Ad", new { to = @Html.DisplayFor(model => model.ElementAt(j).User.Profil_name), id = @Html.DisplayFor(model => Model.ElementAt(j).Id) }, FormMethod.Post))
+                        { <form action="#" id="form" method="post" name="form">
                         <img id="close" src="~/Pictures/Icons/close.png" onclick="div_hide()">
                         <h2>Wyślij wiadomość</h2>
                         <hr>
@@ -236,16 +255,102 @@
 
                         @*<p><button class="btn btn-lg btn-success btn-block" type="submit" onclick="location.href='@Url.Action("SendMail", "Ad")'">Wyślij</button></p>*@
                     </form>
-                    }
+                        }
+                    </div>
+                    <!-- Popup Div Ends Here -->
                 </div>
-                <!-- Popup Div Ends Here -->
+                <!-- Display Popup Button -->
             </div>
-            <!-- Display Popup Button -->
+@*
+                isAdd = true;
+            }
+
+        }*@
         </div>
 
-
 @*</aside>*@
-</article>
+@{
+   List<int> randomList = new List<int>();
+}
+@{ int c = Model.Count()-1;}
+@{ int a = rnd.Next(0, c);}
+<div id="wrapper">
+
+    <h3 class="block-title">
+        <span>Polecane produkty</span>
+    </h3>
+    <div class="row">
+
+
+        @for (int i = 0; i <3 ; i++)
+            {
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mb-4">
+
+                <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(a).Id })" class="navbar-left">
+                    <div class="pin">
+                        @{Boolean isPhoto = false; }
+                        @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
+                        {
+                            if (item.AdId == Model.ElementAt(a).Id && item.Main_photo == true && isPhoto == false)
+                            {
+
+                                <img src="@System.String.Format("data:{0};base64,{1}", item.Type, Convert.ToBase64String(item.Photo))" style="height: 340px;" /><br />
+                                isPhoto = true;
+                            }
+
+                        }
+
+                        @if (isPhoto == false)
+                        {
+                            <img src="~/Pictures/dress.jpg" /><br />
+                        }
+
+
+                        @if ((@Html.DisplayFor(p => p.ElementAt(a).Brand.Name)).ToString() == "")
+                        {
+                            <p class="alignright" style="width:100%">
+
+                                <b> @Html.DisplayFor(p => p.ElementAt(a).Price) zł</b>
+                            </p>
+                                <p class="right">
+
+                                    <b>@Html.DisplayFor(p => p.ElementAt(a).Size.Name)</b>
+                                </p>
+
+                        }
+                        else
+                        {
+                            <p class="alignleft">
+
+                                <b>@Html.DisplayFor(p => p.ElementAt(a).Brand.Name)</b>
+                            </p>
+                                <p class="alignright">
+
+                                    <b> @Html.DisplayFor(p => p.ElementAt(a).Price) zł</b>
+                                </p>
+                                <p class="right">
+
+                                    <b>@Html.DisplayFor(p => p.ElementAt(a).Size.Name)</b>
+                                </p>
+                        }
+                    </div>
+                </a>
+            </div>
+                                randomList.Add(a);
+                           
+                                while (randomList.Contains(a))
+                                {
+                                    a = rnd.Next(0, c);
+                                   
+                                }
+                                
+
+                            }
+    </div>
+</div>
+
+
+
 
 </body>
 

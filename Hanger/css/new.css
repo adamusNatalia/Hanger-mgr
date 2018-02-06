@@ -294,3 +294,30 @@ a {
     text-decoration: none !important;
     color :#dc679a !important;
 }
+
+.block-title {
+    /* font-family: Avalon-Bold; */
+    /* font-size: 10.5pt; */
+    /* letter-spacing: 2px; */
+    /* text-transform: uppercase; */
+    border-bottom: solid 1px #ccc;
+    position: relative;
+    font-size: 30px;
+    /* padding-bottom: 30px; */
+    margin-bottom: 30px;
+}
+.block-title span {
+    padding: 0 10px;
+    position: absolute;
+    top: -8px;
+    left: 40px;
+    background: white;
+    /* font-family: Avalon-Bold; */
+    /* font-size: 10.5pt; */
+    /* letter-spacing: 1px; */
+    /* text-transform: uppercase; */
+    /* margin:  0 auto; */
+    /* color: #dc679a; */
+    font-size: 20px;
+    color: #333;
+}

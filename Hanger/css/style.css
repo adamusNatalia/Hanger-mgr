@@ -43,6 +43,9 @@ strong {font-weight:bold;}
 article {display:block;text-align:left;;margin:0px auto;clear:both;min-height:400px; padding-top:100px;}
 	article footer {-webkit-box-shadow:none;-moz-box-shadow: none;box-shadow:none;}
 
+    #mainview {display:block;text-align:left;;margin:0px auto;clear:both;min-height:400px; padding-top:100px;overflow:auto;}
+	
+
 footer {height:116px;margin-top:0;width:100%;display:block;clear:both;padding-top:14px;background:#fff;-webkit-animation: delay 0.5s;-moz-animation: delay 0.5s;-webkit-box-shadow: 0px -10px 30px 0px rgba(180, 160, 145, 0.2);-moz-box-shadow: 0px -10px 30px 0px rgba(180, 160, 145, 0.2);box-shadow: 0px -10px 30px 0px rgba(180, 160, 145, 0.2);}
 	footer .logo {display:block;height:24px;border-bottom:1px solid #ececec;margin:0px 0px 10px;overflow:hidden;text-indent:-999em;background:#fff url(../images/sprite.png) no-repeat 830px -60px}
 	footer a, footer strong {margin-left:10px;}
