@@ -309,7 +309,9 @@
     <Content Include="Pictures\Icons\close.png" />
     <Content Include="Pictures\Icons\envelope.png" />
     <Content Include="Pictures\Icons\error.png" />
+    <Content Include="Pictures\Icons\favorite-heart.png" />
     <Content Include="Pictures\Icons\hanger.png" />
+    <Content Include="Pictures\Icons\heart.png" />
     <Content Include="Pictures\Icons\loupe.png" />
     <Content Include="Pictures\Icons\pen.png" />
     <Content Include="Pictures\Icons\search.png" />

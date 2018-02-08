@@ -228,9 +228,19 @@
                         @*@Html.Hidden("id", item.Id)*@
                         <input type="submit" value="Usuń ogłoszenie" class="btn btn-default" />
                     }
+
+                    using (Html.BeginForm("Delete", "Ad", new { adId = Model.ElementAt(j).Id }, FormMethod.Post, new { style = "border:0px; padding:0px; margin-top: 10px;" }))
+                    {
+                        @*@Html.Hidden("id", item.Id)*@
+                        <input type="submit" value="Usuń ogłoszenie" class="btn btn-default" />
+                    }
                 }
                 else
                 {
+                    if (Session["LogedUserID"] != null)
+                    {
+                        <a href="@Url.Action("Edit", "Ad", new { id = Model.ElementAt(j).Id })" class="btn btn-default2" style="margin-top: 10px;">Dodaj do ulubionych</a>
+                    }
                     <button id="popup" onclick="div_show()" class="btn btn-default" style="margin-top: 10px; margin-bottom: 30px;">Wyślij wiadomość</button>
                 }
 
@@ -282,12 +292,11 @@
     <div class="row">
 
 
-        @for (int i = 0; i <3 ; i++)
-            {
+        @for (int i = 0; i < 3; i++)
+        {
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 mb-4">
-
-                <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(a).Id })" class="navbar-left">
-                    <div class="pin">
+                <div class="pin">
+                    <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(a).Id })" class="navbar-left">
                         @{Boolean isPhoto = false; }
                         @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
                         {
@@ -306,35 +315,53 @@
                         }
 
 
-                        @if ((@Html.DisplayFor(p => p.ElementAt(a).Brand.Name)).ToString() == "")
+                    </a>
+                    @if ((@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)).ToString() == "")
+                {
+                        <p class="alignright" style="width:100%">
+
+                            <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
+                        </p>
+                        <p class="alignleft brand">
+
+                            <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+                        </p>
+                        if (Session["LogedUserID"] != null)
                         {
-                            <p class="alignright" style="width:100%">
-
-                                <b> @Html.DisplayFor(p => p.ElementAt(a).Price) zł</b>
+                            <p class="alignright">
+                                <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })" id="favourite">
+                                    <img alt="Favourite" src="~/Pictures/Icons/heart.png" class="favourite" />
+                                </a>
                             </p>
-                                <p class="right">
+                         }
 
-                                    <b>@Html.DisplayFor(p => p.ElementAt(a).Size.Name)</b>
-                                </p>
+                    }
+                    else
+                    {
+                        <p class="alignleft">
 
-                        }
-                        else
+                            <b>@Html.DisplayFor(p => p.ElementAt(j).Brand.Name)</b>
+                        </p>
+                        <p class="alignright">
+
+                            <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
+                        </p>
+                        <p class="alignleft brand">
+
+                            <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+                        </p>
+                        if (Session["LogedUserID"] != null)
                         {
-                            <p class="alignleft">
-
-                                <b>@Html.DisplayFor(p => p.ElementAt(a).Brand.Name)</b>
+                            <p class="alignright">
+                                <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })" id="favourite">
+                                    <img alt="Favourite" src="~/Pictures/Icons/heart.png" class="favourite" />
+                                </a>
                             </p>
-                                <p class="alignright">
-
-                                    <b> @Html.DisplayFor(p => p.ElementAt(a).Price) zł</b>
-                                </p>
-                                <p class="right">
-
-                                    <b>@Html.DisplayFor(p => p.ElementAt(a).Size.Name)</b>
-                                </p>
                         }
-                    </div>
-                </a>
+                    }
+                    
+                </div>
+               
             </div>
                                 randomList.Add(a);
                            

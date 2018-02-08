@@ -21,7 +21,8 @@
 .pin{
     break-inside: avoid-column;
     max-width:100%;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    overflow:auto;
 }
 
 #container
@@ -321,3 +322,22 @@ a {
     font-size: 20px;
     color: #333;
 }
+
+.pin img.favourite{
+
+    width: 25px;
+    height: auto;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.alignleft.brand{
+    margin-top:7px;
+}
+
+#favourite:hover>img,
+#favourite:focus>img
+ {
+    content:url('../../Pictures/Icons/favorite-heart.png');
+ }
