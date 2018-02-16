@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Krzysiek\Source\ReposFinal\Hanger-ASP.NET\Hanger\Models\ModelHanger.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Natalia\Source\Repos\Hanger-mgr\Hanger\Models\ModelHanger.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -114,9 +114,10 @@
                         if (Session["LogedUserID"] != null)
                         {
                             <p class="alignright">
-                                <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })" id="favourite">
-                                    <img alt="Favourite" src="~/Pictures/Icons/heart.png" class="favourite" />
-                                </a>
+                                @using (Html.BeginForm("AddToFavourite", "Ad", new { id = Model.ElementAt(j).Id }, FormMethod.Post))
+                                {
+                                    <input type="submit" value="Usuń" class="btn btn-default" />
+                                 }
                             </p>
                         }
 
@@ -138,7 +139,7 @@
                         if (Session["LogedUserID"] != null)
                         {
                             <p class="alignright">
-                                <a href="@Url.Action("Product", "Ad", new { id =  Model.ElementAt(j).Id })" id="favourite">
+                                <a href="@Url.Action("AddToFavourite", "Ad", new { id =  Model.ElementAt(j).Id })" id="favourite">
                                     <img alt="Favourite" src="~/Pictures/Icons/heart.png" class="favourite" />
                                 </a>
                             </p>

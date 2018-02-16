@@ -42,5 +42,6 @@ namespace Hanger.Models
         public virtual DbSet<UserPhoto> UserPhoto { get; set; }
         public virtual DbSet<SubSubcategory> SubSubcategory { get; set; }
         public virtual DbSet<Brand> Brand { get; set; }
+        public virtual DbSet<Favourite> Favourite { get; set; }
     }
 }

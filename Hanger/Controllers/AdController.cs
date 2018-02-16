@@ -669,6 +669,34 @@ namespace Hanger.Controllers
             return RedirectToAction("Product", "Ad", new { Id = id });
         }
 
+        public ActionResult AddToFavourite(int adId)
+        {
+
+            using (HangerDatabase db = new HangerDatabase())
+            {
+                Favourite f = new Favourite();
+                f.Date_start = DateTime.Now;
+                f.UserId = (Session["LogedUserID"] as User).Id;
+
+
+                if (db.Favourite != null && db.Favourite.Count() != 0)
+                {
+                    f.Id = (from ph in db.Favourite
+                            select ph.Id).Max() + 1;
+                }
+                else
+                    f.Id = 0;
+
+                // p.OwnerId = (Session["CurrentUserEmail"] as User).UserId;
+                f.AdId = adId;
+                db.Favourite.Add(f);
+                db.SaveChanges();
+            }
+
+            //return RedirectToAction("New", "Home");
+            return View();
+        }
+
 
     }
 

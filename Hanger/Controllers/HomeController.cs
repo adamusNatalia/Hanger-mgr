@@ -49,6 +49,13 @@ namespace Hanger.Controllers
             return View();
         }
 
+        public ActionResult Test()
+        {
+
+            ViewBag.Title = "Hanger";
+            return View();
+        }
+
         [HttpPost]
         public ActionResult SendMail(string email, string body, string subject)
         {

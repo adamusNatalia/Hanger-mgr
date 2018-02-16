@@ -8,6 +8,7 @@ namespace Hanger
     {
         public void Configuration(IAppBuilder app)
         {
+            app.MapSignalR();
             ConfigureAuth(app);
         }
     }

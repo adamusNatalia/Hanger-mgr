@@ -40,7 +40,10 @@
         <AssociationConnector Association="HangerDatabaseModel.FKSubsubcate564795" />
         <EntityTypeShape EntityType="HangerDatabaseModel.Brand" Width="1.5" PointX="8.375" PointY="8.875" />
         <AssociationConnector Association="HangerDatabaseModel.FKAd584267" />
-      </Diagram>
+        <EntityTypeShape EntityType="HangerDatabaseModel.Favourite" Width="1.5" PointX="11.5" PointY="8.125" />
+        <AssociationConnector Association="HangerDatabaseModel.FK_FKAd308596" />
+        <AssociationConnector Association="HangerDatabaseModel.FK_FKAd513542" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
