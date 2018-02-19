@@ -125,7 +125,7 @@
                 </nav>
             </div>
 
-            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 mb-4">
+            <div id="photoDiv"class="col-lg-5 col-md-5 col-sm-5 col-xs-12 mb-4">
 
                 @foreach (var item in new Hanger.Models.HangerDatabase().Photos)
             {
@@ -136,6 +136,18 @@
 
                     }
 
+                }
+                @if (Session["LogedUserID"] != null && (Session["LogedUserID"] as Hanger.Models.User).Id != Model.ElementAt(j).UserId)
+                {
+                    if (ViewBag.isInFavourites == false)
+                    {
+                        <img alt="Favourite" src="/Pictures/Icons/heart.png" class="favourite" id="favouriteMainPhoto">
+                    }
+                    else
+                    {
+                        <img alt="Favourite" src="/Pictures/Icons/favorite-heart.png" class="favourite" id="favouriteMainPhoto">
+
+                    }
                 }
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 mb-4">
@@ -239,8 +251,25 @@
                 {
                     if (Session["LogedUserID"] != null)
                     {
-                        <a href="@Url.Action("Edit", "Ad", new { id = Model.ElementAt(j).Id })" class="btn btn-default2" style="margin-top: 10px;">Dodaj do ulubionych</a>
+                        if (ViewBag.isInFavourites== false)
+                        {
+                            using (Html.BeginForm("AddToFavourites", "Ad", new { adId = Model.ElementAt(j).Id }, FormMethod.Post, new { style = "border:0px; padding:0px; margin-top: 10px;" }))
+                            {
+                            @*@Html.Hidden("id", item.Id)*@
+                            <input type="submit" value="Dodaj do ulubionych" class="btn btn-default2" />
+                            }
+                        }
+                        else
+                        {
+                            using (Html.BeginForm("RemoveFromFavourites", "Ad", new { adId = Model.ElementAt(j).Id }, FormMethod.Post, new { style = "border:0px; padding:0px; margin-top: 10px;" }))
+                            {
+                                @*@Html.Hidden("id", item.Id)*@
+                                <input type="submit" value="Usuń z ulubionych" class="btn btn-default2" />
+                            }
+                        }
+
                     }
+
                     <button id="popup" onclick="div_show()" class="btn btn-default" style="margin-top: 10px; margin-bottom: 30px;">Wyślij wiadomość</button>
                 }
 

@@ -341,3 +341,21 @@ a {
  {
     content:url('../../Pictures/Icons/favorite-heart.png');
  }
+
+#main{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#photoDiv{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#favouriteMainPhoto{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}

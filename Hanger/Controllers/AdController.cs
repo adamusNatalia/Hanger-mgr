@@ -49,9 +49,21 @@ namespace Hanger.Controllers
             //ViewBag.AddCount = ad.Count();
             ViewBag.Id = Id;
 
-            ViewBag.index= ad.ToList().FindIndex(a => a.Id == Id);
+            ViewBag.index = ad.ToList().FindIndex(a => a.Id == Id);
             ViewBag.model = ad.Count();
-      
+
+            if (Session["LogedUserID"] != null)
+            {
+                int user= (Session["LogedUserID"] as User).Id; 
+                var fav = from s in db.Favourite
+                         where (s.UserId == user) && (s.AdId==Id)
+                         select s;
+                if (fav.Count() == 0)
+                {
+                    ViewBag.isInFavourites = false;
+                }
+            }
+
 
             return View(ad.ToList()); 
         }
@@ -644,7 +656,7 @@ namespace Hanger.Controllers
                 String emailTo = user.First().Mail;
 
                 msg.To.Add(emailTo);
-                //msg.To.Add("hanger.natalia@gmail.com");
+                //msg.To.Add("hanger.natalia@gmail.com");de
                 //msg.From = new MailAddress(email);
                 msg.From = new MailAddress("hanger.natalia@gmail.com",email);
                 //msg.Sender = new MailAddress(email);
@@ -669,7 +681,8 @@ namespace Hanger.Controllers
             return RedirectToAction("Product", "Ad", new { Id = id });
         }
 
-        public ActionResult AddToFavourite(int adId)
+        [HttpPost]
+        public ActionResult AddToFavourites(int adId)
         {
 
             using (HangerDatabase db = new HangerDatabase())
@@ -694,9 +707,26 @@ namespace Hanger.Controllers
             }
 
             //return RedirectToAction("New", "Home");
-            return View();
+            return RedirectToAction("Product", "Ad", new { id = adId });
         }
 
+        [HttpPost]
+        public ActionResult RemoveFromFavourites(int adId)
+        {
+            using (HangerDatabase DataContext = new HangerDatabase())
+            {
+                int user = (Session["LogedUserID"] as User).Id;
+                var fav = (from s in DataContext.Favourite
+                          where (s.UserId == user) && (s.AdId == adId)
+                          select s).FirstOrDefault();
+
+                DataContext.Favourite.Remove(fav);
+
+                DataContext.SaveChanges();
+            }
+
+            return RedirectToAction("Product", "Ad", new { id = adId });
+        }
 
     }
 
