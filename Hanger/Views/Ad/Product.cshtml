@@ -235,10 +235,10 @@
             {
                     <a href="@Url.Action("Edit", "Ad", new { id =  Model.ElementAt(j).Id })" class="btn btn-default2" style="margin-top: 10px;">Edycja ogłoszenia</a>
 
-                    using (Html.BeginForm("Delete", "Ad", new { adId = Model.ElementAt(j).Id }, FormMethod.Post, new { style = "border:0px; padding:0px; margin-top: 10px;" }))
+                    using (Html.BeginForm("IsSold", "Ad", new { adId = Model.ElementAt(j).Id }, FormMethod.Post, new { style = "border:0px; padding:0px; margin-top: 10px;" }))
                     {
                         @*@Html.Hidden("id", item.Id)*@
-                        <input type="submit" value="Usuń ogłoszenie" class="btn btn-default" />
+                        <input type="submit" value="Sprzedane" class="btn btn-default" />
                     }
 
                     using (Html.BeginForm("Delete", "Ad", new { adId = Model.ElementAt(j).Id }, FormMethod.Post, new { style = "border:0px; padding:0px; margin-top: 10px;" }))

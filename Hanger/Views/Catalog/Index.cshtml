@@ -6,6 +6,7 @@
 
 
 @{ int j = 0;}
+
 @*<div style="padding-top: 70px;display: table; margin-left: 13%;" ><a href="index.html">Katalog</a> <a href="search.html" > > Damska Odzież</a> > Sukienki</div>*@
    <h2 class="page-header"><img alt="Brand" src="~/Pictures/Icons/hanger.png" class="img-header"> @ViewBag.subcategory</h2>
  @using (Html.BeginForm("Index", "Catalog", FormMethod.Get))
@@ -65,6 +66,7 @@
 
 
     <div id="wrapper">
+        
 
         @if (Model.Count() == 0)
         {
@@ -107,17 +109,27 @@
 
                             <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
                         </p>
-                        <p class="alignleft brand">
 
-                            <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
-                        </p>
-                        if (Session["LogedUserID"] != null)
+                        if (Session["LogedUserID"] != null && ViewBag.FavoriteID.Contains(Model.ElementAt(j).Id))
                         {
-                            <p class="alignright">
-                                @using (Html.BeginForm("AddToFavourite", "Ad", new { id = Model.ElementAt(j).Id }, FormMethod.Post))
-                                {
-                                    <input type="submit" value="Usuń" class="btn btn-default" />
-                                 }
+                            <p class="alignleft">
+                                <img alt="Favourite" src="~/Pictures/Icons/favorite-heart.png" class="favourite" />
+
+
+                            </p>
+                            <p class="alignright brand">
+
+                                <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+
+                            </p>
+                        }
+
+                        else
+                        {
+                            <p class="alignright brand" style="width:100%">
+
+                                <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+
                             </p>
                         }
 
@@ -132,16 +144,26 @@
 
                             <b> @Html.DisplayFor(p => p.ElementAt(j).Price) zł</b>
                         </p>
-                        <p class="alignleft brand">
-
-                            <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
-                        </p>
-                        if (Session["LogedUserID"] != null)
+                        if (Session["LogedUserID"] != null && ViewBag.FavoriteID.Contains(Model.ElementAt(j).Id))
                         {
-                            <p class="alignright">
-                                <a href="@Url.Action("AddToFavourite", "Ad", new { id =  Model.ElementAt(j).Id })" id="favourite">
-                                    <img alt="Favourite" src="~/Pictures/Icons/heart.png" class="favourite" />
-                                </a>
+                            <p class="alignleft">
+                                <img alt="Favourite" src="~/Pictures/Icons/favorite-heart.png" class="favourite" />
+
+                            
+                            </p>
+                            <p class="alignright brand">
+                               
+                                <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+                                
+                            </p>
+                        }
+
+                        else
+                        {
+                            <p class="alignright brand" style="width:100%">
+
+                                <b>@Html.DisplayFor(p => p.ElementAt(j).Size.Name)</b>
+
                             </p>
                         }
                     }

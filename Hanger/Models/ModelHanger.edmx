@@ -21,6 +21,8 @@
           <Property Name="ConditionId" Type="int" Nullable="false" />
           <Property Name="Swap" Type="bit" />
           <Property Name="BrandId" Type="int" />
+          <Property Name="Is_sold" Type="bit" />
+          <Property Name="Date_end" Type="datetime" />
         </EntityType>
         <EntityType Name="Brand">
           <Key>
@@ -544,6 +546,8 @@
           <Property Name="BrandId" Type="Int32" />
           <NavigationProperty Name="Brand" Relationship="HangerDatabaseModel.FKAd584267" FromRole="Ad" ToRole="Brand" />
           <NavigationProperty Name="Favourite" Relationship="HangerDatabaseModel.FK_FKAd308596" FromRole="Ad" ToRole="Favourite" />
+          <Property Name="Is_sold" Type="Boolean" />
+          <Property Name="Date_end" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -1078,7 +1082,9 @@
     <EntitySetMapping Name="Ad">
       <EntityTypeMapping TypeName="IsTypeOf(HangerDatabaseModel.Ad)">
         <MappingFragment StoreEntitySet="Ad">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date_end" ColumnName="Date_end" />
+                <ScalarProperty Name="Is_sold" ColumnName="Is_sold" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Title" ColumnName="Title" />

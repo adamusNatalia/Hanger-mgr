@@ -138,7 +138,7 @@ namespace Hanger.Controllers
   
 
             var ad = from s in db.Ad
-                    where (s.SubcategoryId == id)
+                    where (s.SubcategoryId == id) && (s.Is_sold!=true)
                      select s;
 
             var sub= from s in db.Subcategory
@@ -296,6 +296,17 @@ namespace Hanger.Controllers
                     ad = ad.OrderBy(s => s.Id);
                     break;
             }
+
+            if (Session["LogedUserID"] != null)
+            {
+                int user = (Session["LogedUserID"] as User).Id;
+                var fav = (from s in db.Favourite
+                          select s.AdId).ToList();
+                List<int> fundList = fav;
+                ViewBag.FavoriteID= fundList;
+
+            }
+
 
             //ad = ad.OrderByDescending(s => s.Id);
             return View(ad.ToList().ToPagedList(page ?? 1, 32));

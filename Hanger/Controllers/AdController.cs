@@ -728,6 +728,35 @@ namespace Hanger.Controllers
             return RedirectToAction("Product", "Ad", new { id = adId });
         }
 
+        [HttpPost]
+        public ActionResult IsSold(int adId)
+        {
+
+            using (HangerDatabase db = new HangerDatabase())
+            {
+                Ad A = db.Ad.Find(adId);
+                if (ModelState.IsValid)
+                {
+                    A.Is_sold = true;
+                    A.Date_end = DateTime.Now;
+                    db.Entry(A).State = EntityState.Modified;
+                    try
+                    {
+                        db.SaveChanges();
+                    }
+                    catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+                    {
+                        Exception raise = dbEx;
+                    }
+                }
+                
+          
+            }
+
+            //return RedirectToAction("New", "Home");
+            return RedirectToAction("Product", "Ad", new { id = adId });
+        }
+
     }
 
     }

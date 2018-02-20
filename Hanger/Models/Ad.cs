@@ -34,6 +34,8 @@ namespace Hanger.Models
         public int ConditionId { get; set; }
         public Nullable<bool> Swap { get; set; }
         public Nullable<int> BrandId { get; set; }
+        public Nullable<bool> Is_sold { get; set; }
+        public Nullable<System.DateTime> Date_end { get; set; }
     
         public virtual Condition Condition { get; set; }
         public virtual Size Size { get; set; }
