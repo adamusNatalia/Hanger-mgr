@@ -18,6 +18,7 @@ namespace Hanger.Models
         public Size()
         {
             this.Ad = new HashSet<Ad>();
+            this.UserProfil = new HashSet<UserProfil>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,7 @@ namespace Hanger.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ad> Ad { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserProfil> UserProfil { get; set; }
     }
 }

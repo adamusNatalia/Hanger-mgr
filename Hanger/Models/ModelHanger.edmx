@@ -177,6 +177,17 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="UserProfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Color1Id" Type="int" Nullable="false" />
+          <Property Name="Color2Id" Type="int" />
+          <Property Name="SizeId" Type="int" Nullable="false" />
+          <Property Name="BrandId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
         <Association Name="FK_FKAd307749">
           <End Role="Condition" Type="Self.Condition" Multiplicity="1" />
           <End Role="Ad" Type="Self.Ad" Multiplicity="*" />
@@ -213,6 +224,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FKAd465758">
+          <End Role="Size" Type="Self.Size" Multiplicity="1" />
+          <End Role="UserProfil" Type="Self.UserProfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfil">
+              <PropertyRef Name="SizeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_FKAd475152">
           <End Role="Color" Type="Self.Color" Multiplicity="1" />
           <End Role="Ad" Type="Self.Ad" Multiplicity="*" />
@@ -222,6 +245,54 @@
             </Principal>
             <Dependent Role="Ad">
               <PropertyRef Name="ColorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKAd476875">
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
+          <End Role="UserProfil" Type="Self.UserProfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfil">
+              <PropertyRef Name="Color1Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKAd478957">
+          <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
+          <End Role="UserProfil" Type="Self.UserProfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfil">
+              <PropertyRef Name="Color2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKAd487456">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
+          <End Role="UserProfil" Type="Self.UserProfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfil">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKAd497584">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserProfil" Type="Self.UserProfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfil">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -436,6 +507,7 @@
           <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserPhoto" EntityType="Self.UserPhoto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfil" EntityType="Self.UserProfil" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_FKAd307749" Association="Self.FK_FKAd307749">
             <End Role="Condition" EntitySet="Condition" />
             <End Role="Ad" EntitySet="Ad" />
@@ -448,9 +520,29 @@
             <End Role="Size" EntitySet="Size" />
             <End Role="Ad" EntitySet="Ad" />
           </AssociationSet>
+          <AssociationSet Name="FK_FKAd465758" Association="Self.FK_FKAd465758">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="UserProfil" EntitySet="UserProfil" />
+          </AssociationSet>
           <AssociationSet Name="FK_FKAd475152" Association="Self.FK_FKAd475152">
             <End Role="Color" EntitySet="Color" />
             <End Role="Ad" EntitySet="Ad" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKAd476875" Association="Self.FK_FKAd476875">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="UserProfil" EntitySet="UserProfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKAd478957" Association="Self.FK_FKAd478957">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="UserProfil" EntitySet="UserProfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKAd487456" Association="Self.FK_FKAd487456">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="UserProfil" EntitySet="UserProfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKAd497584" Association="Self.FK_FKAd497584">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserProfil" EntitySet="UserProfil" />
           </AssociationSet>
           <AssociationSet Name="FK_FKAd513542" Association="Self.FK_FKAd513542">
             <End Role="User" EntitySet="User" />
@@ -564,6 +656,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Ad" Relationship="Self.FKAd475152" FromRole="Color" ToRole="Ad" />
+          <NavigationProperty Name="UserProfil" Relationship="HangerDatabaseModel.FK_FKAd476875" FromRole="Color" ToRole="UserProfil" />
+          <NavigationProperty Name="UserProfil1" Relationship="HangerDatabaseModel.FK_FKAd478957" FromRole="Color" ToRole="UserProfil" />
         </EntityType>
         <EntityType Name="Condition">
           <Key>
@@ -655,6 +749,7 @@
           <NavigationProperty Name="Ad" Relationship="Self.FKAd464028" FromRole="Size" ToRole="Ad" />
           <Property Name="Uk_size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Nuber_size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserProfil" Relationship="HangerDatabaseModel.FK_FKAd465758" FromRole="Size" ToRole="UserProfil" />
         </EntityType>
         <EntityType Name="Subcategory">
           <Key>
@@ -695,6 +790,7 @@
           <NavigationProperty Name="Message1" Relationship="Self.FKMessage63833" FromRole="User" ToRole="Message" />
           <NavigationProperty Name="UserPhoto" Relationship="Self.FKUser322553" FromRole="User" ToRole="UserPhoto" />
           <NavigationProperty Name="Favourite" Relationship="HangerDatabaseModel.FK_FKAd513542" FromRole="User" ToRole="Favourite" />
+          <NavigationProperty Name="UserProfil" Relationship="HangerDatabaseModel.FK_FKAd497584" FromRole="User" ToRole="UserProfil" />
         </EntityType>
         <EntityType Name="UserPhoto">
           <Key>
@@ -995,6 +1091,27 @@
             <End Role="User" EntitySet="User" />
             <End Role="Favourite" EntitySet="Favourite" />
           </AssociationSet>
+          <EntitySet Name="UserProfil" EntityType="HangerDatabaseModel.UserProfil" />
+          <AssociationSet Name="FK_FKAd487456" Association="HangerDatabaseModel.FK_FKAd487456">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="UserProfil" EntitySet="UserProfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKAd476875" Association="HangerDatabaseModel.FK_FKAd476875">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="UserProfil" EntitySet="UserProfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKAd478957" Association="HangerDatabaseModel.FK_FKAd478957">
+            <End Role="Color" EntitySet="Color" />
+            <End Role="UserProfil" EntitySet="UserProfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKAd465758" Association="HangerDatabaseModel.FK_FKAd465758">
+            <End Role="Size" EntitySet="Size" />
+            <End Role="UserProfil" EntitySet="UserProfil" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FKAd497584" Association="HangerDatabaseModel.FK_FKAd497584">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserProfil" EntitySet="UserProfil" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="SubSubcategory">
           <Key>
@@ -1025,6 +1142,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Ad" Relationship="HangerDatabaseModel.FKAd584267" FromRole="Brand" ToRole="Ad" />
+          <NavigationProperty Name="UserProfil" Relationship="HangerDatabaseModel.FK_FKAd487456" FromRole="Brand" ToRole="UserProfil" />
         </EntityType>
         <Association Name="FKAd584267">
           <End Type="HangerDatabaseModel.Brand" Role="Brand" Multiplicity="0..1" />
@@ -1069,6 +1187,82 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Favourite">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserProfil">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Color1Id" Type="Int32" Nullable="false" />
+          <Property Name="Color2Id" Type="Int32" />
+          <Property Name="SizeId" Type="Int32" Nullable="false" />
+          <Property Name="BrandId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Brand" Relationship="HangerDatabaseModel.FK_FKAd487456" FromRole="UserProfil" ToRole="Brand" />
+          <NavigationProperty Name="Color" Relationship="HangerDatabaseModel.FK_FKAd476875" FromRole="UserProfil" ToRole="Color" />
+          <NavigationProperty Name="Color1" Relationship="HangerDatabaseModel.FK_FKAd478957" FromRole="UserProfil" ToRole="Color" />
+          <NavigationProperty Name="Size" Relationship="HangerDatabaseModel.FK_FKAd465758" FromRole="UserProfil" ToRole="Size" />
+          <NavigationProperty Name="User" Relationship="HangerDatabaseModel.FK_FKAd497584" FromRole="UserProfil" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_FKAd487456">
+          <End Type="HangerDatabaseModel.Brand" Role="Brand" Multiplicity="1" />
+          <End Type="HangerDatabaseModel.UserProfil" Role="UserProfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfil">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKAd476875">
+          <End Type="HangerDatabaseModel.Color" Role="Color" Multiplicity="1" />
+          <End Type="HangerDatabaseModel.UserProfil" Role="UserProfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfil">
+              <PropertyRef Name="Color1Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKAd478957">
+          <End Type="HangerDatabaseModel.Color" Role="Color" Multiplicity="0..1" />
+          <End Type="HangerDatabaseModel.UserProfil" Role="UserProfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Color">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfil">
+              <PropertyRef Name="Color2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKAd465758">
+          <End Type="HangerDatabaseModel.Size" Role="Size" Multiplicity="1" />
+          <End Type="HangerDatabaseModel.UserProfil" Role="UserProfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Size">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfil">
+              <PropertyRef Name="SizeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FKAd497584">
+          <End Type="HangerDatabaseModel.User" Role="User" Multiplicity="1" />
+          <End Type="HangerDatabaseModel.UserProfil" Role="UserProfil" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserProfil">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1265,6 +1459,18 @@
                 <ScalarProperty Name="Date_start" ColumnName="Date_start" />
                 <ScalarProperty Name="AdId" ColumnName="AdId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfil">
+            <EntityTypeMapping TypeName="HangerDatabaseModel.UserProfil">
+              <MappingFragment StoreEntitySet="UserProfil">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="SizeId" ColumnName="SizeId" />
+                <ScalarProperty Name="Color2Id" ColumnName="Color2Id" />
+                <ScalarProperty Name="Color1Id" ColumnName="Color1Id" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

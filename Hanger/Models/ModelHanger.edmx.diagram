@@ -43,6 +43,12 @@
         <EntityTypeShape EntityType="HangerDatabaseModel.Favourite" Width="1.5" PointX="11.5" PointY="8.125" />
         <AssociationConnector Association="HangerDatabaseModel.FK_FKAd308596" />
         <AssociationConnector Association="HangerDatabaseModel.FK_FKAd513542" />
+        <EntityTypeShape EntityType="HangerDatabaseModel.UserProfil" Width="1.5" PointX="10.625" PointY="11.125" />
+        <AssociationConnector Association="HangerDatabaseModel.FK_FKAd487456" />
+        <AssociationConnector Association="HangerDatabaseModel.FK_FKAd476875" />
+        <AssociationConnector Association="HangerDatabaseModel.FK_FKAd478957" />
+        <AssociationConnector Association="HangerDatabaseModel.FK_FKAd465758" />
+        <AssociationConnector Association="HangerDatabaseModel.FK_FKAd497584" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

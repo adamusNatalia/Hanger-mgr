@@ -262,6 +262,9 @@
     <Compile Include="Models\UserPhoto.cs">
       <DependentUpon>ModelHanger.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserProfil.cs">
+      <DependentUpon>ModelHanger.tt</DependentUpon>
+    </Compile>
     <Compile Include="MyHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -416,6 +419,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Register\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
