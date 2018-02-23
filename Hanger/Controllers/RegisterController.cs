@@ -36,6 +36,7 @@ namespace Hanger.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(User U)
         {
+            int userId=1;
             if (ModelState.IsValid)
             {
               
@@ -44,10 +45,43 @@ namespace Hanger.Controllers
                     db.User.Add(U);
                     db.SaveChanges();
                     ModelState.Clear();
-                    U = null;
+                    String profil_name = U.Profil_name;
+                    userId = U.Id;
+                   
                     ViewBag.Message = "Successfully Registration Done";
-                    var user = (from p in db.User
-                                select p);
+
+                    U = null;
+
+                    //if (v != null)
+                    //{
+                    //    //Session["LogedUserID"] = v.Id.ToString();
+                    //    Session["CurrentUserEmail"] = v.First();
+                    //    Session["LogedUserFullname"] = v.Profil_name.ToString();
+                    //    if (v.Profil_name.ToString() == "admin")
+                    //    {
+                    //        return RedirectToAction("AfterLoginAdmin");
+                    //    }
+                    //    return RedirectToAction("AfterLogin");
+                    //}
+
+
+                }
+            }
+
+            return RedirectToAction("NewProfil", "Register", new { id = userId } );
+        }
+
+        public ActionResult NewProfil(int id)
+        {
+            if (ModelState.IsValid) // this is check validity
+            {
+
+                
+                    Console.WriteLine("Zalogowano");
+                    //var v = db.User.Where(a => a.Profil_name.Equals(u.Profil_name) && a.Password.Equals(u.Password)).FirstOrDefault();
+                    var user = from p in db.User
+                               where p.Id == id 
+                               select p;
 
 
                     //if (v != null)
@@ -64,29 +98,23 @@ namespace Hanger.Controllers
 
                     if (user.Count() != 0)
                     {
-                        Session["LogedUserID"] = (user.Count()-1);
-                        //return RedirectToAction("AfterLogin", "Login");
+                        Session["LogedUserID"] = user.First();
+                       // return RedirectToAction("AfterLogin");
                     }
 
-                }
-            }
 
-            return RedirectToAction("AfterRegister", "Login" );
-        }
-
-        public ActionResult NewProfil()
-        {
-
+              }
             SizeDropDownList();
             BrandDropDownList();
             ColorDropDownList();
+           // ColorDropDownList();
 
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult NewProfil(Ad A)
+        public ActionResult NewProfil(UserProfil up)
         {
             //int adId=32;
             try
@@ -94,10 +122,12 @@ namespace Hanger.Controllers
                 if (ModelState.IsValid)
 
                 {
-                    A.UserId = (Session["LogedUserID"] as User).Id;
+                    up.UserId = (Session["LogedUserID"] as User).Id;
                     //A.Id = 23;
+                    up.Color2Id = 2;
+                    up.Color1Id = 1;
 
-                    db.Ad.Add(A);
+                    db.UserProfil.Add(up);
 
                     //db.SaveChanges();
                     try
@@ -128,13 +158,13 @@ namespace Hanger.Controllers
                 else
                 {
 
-                    SizeDropDownList(A.SizeId);
-                    BrandDropDownList(A.BrandId);
-                    ColorDropDownList(A.ColorId);
+                    SizeDropDownList(up.SizeId);
+                    BrandDropDownList(up.BrandId);
+                    ColorDropDownList(up.Color1Id);
 
 
 
-                    return View(A);
+                    return View(up);
                 }
             }
             catch (RetryLimitExceededException /* dex */)
@@ -144,15 +174,14 @@ namespace Hanger.Controllers
             }
 
 
-            SizeDropDownList(A.SizeId);
-            BrandDropDownList(A.BrandId);
-            ColorDropDownList(A.ColorId);
+            SizeDropDownList(up.SizeId);
+            BrandDropDownList(up.BrandId);
+            ColorDropDownList(up.Color1Id);
 
-            int adId = (from ad in db.Ad
-                        select ad.Id).Max();
+           
 
             //return View(A);
-            return RedirectToAction("Photo1", "Ad", new { id = adId });
+            return RedirectToAction("AfterLogin", "Login");
 
         }
 

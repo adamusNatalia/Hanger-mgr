@@ -419,7 +419,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
-    <Content Include="Views\Register\Edit.cshtml" />
+    <Content Include="Views\Register\NewProfil.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
